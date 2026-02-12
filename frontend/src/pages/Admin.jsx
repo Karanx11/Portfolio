@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../utils/axiosConfig";
 
 function Admin() {
   const [homeData, setHomeData] = useState({
@@ -108,8 +108,8 @@ const handleHomeSubmit = async (e) => {
     formData.append("resume", homeData.resume);
     }
 
-        await axios.post(
-      "http://localhost:5000/api/home",
+        await api.post(
+      "/home",
       formData,
       {
         headers: {
