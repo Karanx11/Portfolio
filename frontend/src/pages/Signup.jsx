@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -7,11 +7,23 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
-  // Send OTP
+  // 🔒 Redirect if already logged in
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/admin");
+    }
+  }, [navigate]);
+
+  // 🚀 Send OTP
   const handleSendOtp = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       await axios.post(
@@ -23,13 +35,16 @@ function Signup() {
       setStep(2);
 
     } catch (error) {
-      alert(error.response?.data?.message || "Error sending OTP");
+      alert(error.response?.data?.message || "Error sending OTP ❌");
     }
+
+    setLoading(false);
   };
 
-  // Verify OTP & Create Admin
+  // 🚀 Verify OTP & Create Admin
   const handleVerifyOtp = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       await axios.post(
@@ -41,60 +56,90 @@ function Signup() {
       navigate("/login");
 
     } catch (error) {
-      alert(error.response?.data?.message || "OTP verification failed");
+      alert(error.response?.data?.message || "OTP verification failed ❌");
     }
+
+    setLoading(false);
   };
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center text-white">
-      <div className="bg-[#111111] p-8 rounded-xl border border-gray-800 w-80 space-y-6">
+      <div className="bg-[#111111] p-8 rounded-xl border border-gray-800 w-80 space-y-6 shadow-xl">
 
         <h2 className="text-2xl text-[#FF7722] font-bold text-center">
           Admin Signup
         </h2>
 
+        {/* STEP 1 - Send OTP */}
         {step === 1 && (
           <form onSubmit={handleSendOtp} className="space-y-4">
             <input
               type="email"
               placeholder="Enter Email"
               required
-              className="w-full p-3 bg-black border border-gray-700 rounded-lg"
+              className="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-[#FF7722] outline-none"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
 
-            <button className="w-full py-3 bg-[#FF7722] text-black font-semibold rounded-lg">
-              Send OTP
+            <button
+              disabled={loading}
+              className="w-full py-3 bg-[#FF7722] text-black font-semibold rounded-lg hover:scale-105 transition"
+            >
+              {loading ? "Sending..." : "Send OTP"}
             </button>
           </form>
         )}
 
+        {/* STEP 2 - Verify OTP */}
         {step === 2 && (
           <form onSubmit={handleVerifyOtp} className="space-y-4">
             <input
               type="text"
               placeholder="Enter OTP"
               required
-              className="w-full p-3 bg-black border border-gray-700 rounded-lg"
+              className="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-[#FF7722] outline-none"
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
             />
 
-            <input
-              type="password"
-              placeholder="Set Password"
-              required
-              className="w-full p-3 bg-black border border-gray-700 rounded-lg"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Set Password"
+                required
+                className="w-full p-3 bg-black border border-gray-700 rounded-lg pr-12 focus:border-[#FF7722] outline-none"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
 
-            <button className="w-full py-3 bg-[#FF7722] text-black font-semibold rounded-lg">
-              Verify & Create Admin
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-3 cursor-pointer text-gray-400 hover:text-[#FF7722]"
+              >
+                {showPassword ? "🙈" : "👁"}
+              </span>
+            </div>
+
+            <button
+              disabled={loading}
+              className="w-full py-3 bg-[#FF7722] text-black font-semibold rounded-lg hover:scale-105 transition"
+            >
+              {loading ? "Verifying..." : "Verify & Create Admin"}
             </button>
           </form>
         )}
+
+        {/* Back to Login */}
+        <p className="text-sm text-gray-400 text-center">
+          Already have an account?{" "}
+          <span
+            onClick={() => navigate("/login")}
+            className="text-[#FF7722] cursor-pointer hover:underline"
+          >
+            Login
+          </span>
+        </p>
 
       </div>
     </div>

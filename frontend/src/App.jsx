@@ -7,6 +7,7 @@ import { SiMongodb, SiTailwindcss } from "react-icons/si";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import ForgotPassword from "./pages/ForgotPassword";
 import { 
   BrowserRouter as Router, 
   Routes, 
@@ -396,6 +397,11 @@ return (
     path="/signup" 
     element={
     <Signup />} />
+    <Route 
+    path="/forgot-password" 
+    element={
+    <ForgotPassword />} />
+    
     <Route 
       path="/admin" 
       element={

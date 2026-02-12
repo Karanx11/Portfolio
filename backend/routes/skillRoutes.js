@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const Skill = require("../models/Skill");
+const verifyToken = require("../middleware/authMiddleware");
 
 // ADD Skill
-router.post("/", async (req, res) => {
+router.post("/", verifyToken, async (req, res) => {
   try {
     const newSkill = new Skill(req.body);
     const savedSkill = await newSkill.save();
@@ -14,7 +15,7 @@ router.post("/", async (req, res) => {
 });
 
 // GET All Skills
-router.get("/", async (req, res) => {
+router.get("/", verifyToken, async (req, res) => {
   try {
     const skills = await Skill.find();
     res.json(skills);
@@ -24,7 +25,7 @@ router.get("/", async (req, res) => {
 });
 
 // DELETE Skill
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", verifyToken, async (req, res) => {
   try {
     await Skill.findByIdAndDelete(req.params.id);
     res.json({ message: "Skill deleted" });

@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const About = require("../models/About");
+const verifyToken = require("../middleware/authMiddleware");
 
 // CREATE or UPDATE (Single Document)
-router.post("/", async (req, res) => {
+router.post("/", verifyToken, async (req, res) => {
   try {
     let about = await About.findOne();
 
@@ -22,7 +23,7 @@ router.post("/", async (req, res) => {
 });
 
 // GET
-router.get("/", async (req, res) => {
+router.get("/", verifyToken, async (req, res) => {
   try {
     const about = await About.findOne();
     res.json(about);

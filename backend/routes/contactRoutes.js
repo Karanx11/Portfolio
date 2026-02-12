@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Contact = require("../models/Contact");
 const Message = require("../models/Message");
+const verifyToken = require("../middleware/authMiddleware");
 
 
 // CREATE or UPDATE Contact Info (Single)
@@ -56,7 +57,7 @@ router.get("/message", async (req, res) => {
 });
 
 // DELETE Message
-router.delete("/message/:id", async (req, res) => {
+router.delete("/message/:id", verifyToken, async (req, res) => {
   try {
     await Message.findByIdAndDelete(req.params.id);
     res.json({ message: "Message deleted" });

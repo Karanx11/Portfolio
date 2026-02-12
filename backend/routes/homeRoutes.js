@@ -3,6 +3,7 @@ const router = express.Router();
 const Home = require("../models/Home");
 const multer = require("multer");
 const path = require("path");
+const verifyToken = require("../middleware/authMiddleware");
 
 // Storage config
 const storage = multer.diskStorage({
@@ -19,7 +20,8 @@ const upload = multer({ storage });
 
 // CREATE or UPDATE Home (Single Document)
 router.post(
-  "/",
+  "/", 
+  verifyToken,
   upload.fields([
     { name: "profileImage", maxCount: 1 },
     { name: "resume", maxCount: 1 },

@@ -108,15 +108,16 @@ const handleHomeSubmit = async (e) => {
     formData.append("resume", homeData.resume);
     }
 
-    await axios.post(
+        await axios.post(
       "http://localhost:5000/api/home",
       formData,
       {
         headers: {
-          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       }
     );
+
 
     alert("Home updated with profile image ✅");
   } catch (error) {
