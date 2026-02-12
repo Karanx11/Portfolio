@@ -1,306 +1,224 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import api from "./utils/axiosConfig";
+
 import Navbar from "./components/Navbar";
 import Admin from "./pages/Admin";
-import { FaReact, FaNodeJs } from "react-icons/fa";
-import { SiMongodb, SiTailwindcss } from "react-icons/si";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
-import { 
-  BrowserRouter as Router, 
-  Routes, 
-  Route, 
-  Navigate 
-} from "react-router-dom";
+
+import { FaReact, FaNodeJs, FaLinkedin, FaGithub } from "react-icons/fa";
+import { SiMongodb, SiTailwindcss } from "react-icons/si";
+
 function App() {
   const [home, setHome] = useState(null);
   const [about, setAbout] = useState(null);
   const [skills, setSkills] = useState([]);
   const [projects, setProjects] = useState([]);
   const [contact, setContact] = useState(null);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
-const iconMap = {
-  FaReact: FaReact,
-  FaNodeJs: FaNodeJs,
-  SiMongodb: SiMongodb,
-  SiTailwindcss: SiTailwindcss,
-};
 
+  const iconMap = {
+    FaReact,
+    FaNodeJs,
+    SiMongodb,
+    SiTailwindcss,
+  };
+
+  // ---------------- FETCH PUBLIC DATA ----------------
   useEffect(() => {
-    const fetchHome = async () => {
-      try {
-        const res = await axios.get("http://localhost:5000/api/home");
-        setHome(res.data);
-      } catch (error) {
-        console.error("Error fetching home:", error);
-      }
-    };
-
-    const fetchAbout = async () => {
-      try {
-        const res = await axios.get("http://localhost:5000/api/about");
-        setAbout(res.data);
-      } catch (error) {
-        console.error("Error fetching about:", error);
-      }
-    };
-
-    const fetchSkills = async () => {
-      try {
-        const res = await axios.get("http://localhost:5000/api/skills");
-        setSkills(res.data);
-      } catch (error) {
-        console.error("Error fetching skills:", error);
-      }
-    };
-
-    const fetchProjects = async () => {
-      try {
-        const res = await axios.get("http://localhost:5000/api/projects");
-        setProjects(res.data);
-      } catch (error) {
-        console.error("Error fetching projects:", error);
-      }
-    };
-
-    const fetchContact = async () => {
-      try {
-        const res = await axios.get("http://localhost:5000/api/contact/info");
-        setContact(res.data);
-      } catch (error) {
-        console.error("Error fetching contact:", error);
-      }
-    };
-
-    fetchHome();
-    fetchAbout();
-    fetchSkills();
-    fetchProjects();
-    fetchContact();
+    fetchData();
   }, []);
 
+  const fetchData = async () => {
+    try {
+      const homeRes = await api.get("/home");
+      const aboutRes = await api.get("/about");
+      const skillsRes = await api.get("/skills");
+      const projectsRes = await api.get("/projects");
+      const contactRes = await api.get("/contact/info");
+
+      setHome(homeRes.data);
+      setAbout(aboutRes.data);
+      setSkills(skillsRes.data);
+      setProjects(projectsRes.data);
+      setContact(contactRes.data);
+    } catch (error) {
+      console.error("Error fetching public data:", error);
+    }
+  };
+
+  // ---------------- CONTACT FORM ----------------
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post(
-        "http://localhost:5000/api/contact/message",
-        formData
-      );
+      await api.post("/contact/message", formData);
       alert("Message sent successfully 🚀");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error("Error sending message:", error);
+      alert("Failed to send message ❌");
     }
   };
-const ProtectedRoute = ({ children }) => {
-  const token = localStorage.getItem("token");
 
-  if (!token) {
-    return <Navigate to="/login" />;
-  }
+  // ---------------- PROTECTED ROUTE ----------------
+  const ProtectedRoute = ({ children }) => {
+    const token = localStorage.getItem("token");
+    return token ? children : <Navigate to="/login" />;
+  };
 
-  return children;
-};
+  // ---------------- PUBLIC PORTFOLIO PAGE ----------------
+  const Portfolio = () => (
+    <div className="bg-black min-h-screen text-white">
+      <Navbar />
 
-return (
-  <Routes>
-    <Route 
-    path="/" 
-    element={
-      <div className="bg-black min-h-screen text-white">
-        <Navbar />
-
-      {/* Hero Section */}
-      {home && (
-        <div
-          id="home"
-          className="pt-28 pb-20 px-6 md:px-16 flex flex-col md:flex-row items-center justify-between gap-12"
-        >
-          {/* Text */}
-          <div className="text-center md:text-left max-w-xl">
-            <h1 className="text-4xl md:text-6xl font-bold text-[#FF7722]">
-              {home.name}
-            </h1>
-
-            <h2 className="text-xl md:text-2xl text-gray-300 mt-4">
-              {home.title}
-            </h2>
-
-            <p className="mt-6 text-gray-400 leading-relaxed">
-              {home.description}
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
-
-              {home.linkedin && (
-                <a
-                  href={home.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-6 py-3 bg-[#0A66C2] text-white rounded-xl shadow-lg hover:scale-105 hover:shadow-blue-500/30 transition-all duration-300"
-                >
-                  <FaLinkedin size={18} />
-                  LinkedIn
-                </a>
-              )}
-
-              {home.github && (
-                <a
-                  href={home.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-6 py-3 bg-gray-800 text-white rounded-xl shadow-lg hover:scale-105 hover:shadow-white/20 transition-all duration-300"
-                >
-                  <FaGithub size={18} />
-                  GitHub
-                </a>
-              )}
-
-              {home.email && (
-                <a
-                  href={`mailto:${home.email}`}
-                  className="px-8 py-3 bg-[#FF7722] text-black font-semibold rounded-xl shadow-lg hover:scale-105 hover:shadow-orange-500/40 transition-all duration-300"
-                >
-                  Hire Me
-                </a>
-              )}
-
-            </div>
-
-
-            {home?.resume && (
-  <a
-    href={`http://localhost:5000${home.resume}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="px-6 py-3 bg-white text-black font-semibold rounded-xl hover:scale-105 transition"
+      {/* HERO */}
+{home && (
+  <section
+    id="home"
+    className="pt-28 pb-20 px-6 md:px-16 flex flex-col-reverse md:flex-row items-center justify-between gap-16"
   >
-    Download Resume
-  </a>
+    {/* LEFT SIDE - TEXT */}
+    <div className="max-w-xl text-center md:text-left">
+      <h1 className="text-4xl md:text-6xl font-bold text-[#FF7722] leading-tight">
+        {home.name}
+      </h1>
+
+      <h2 className="text-xl md:text-2xl text-gray-300 mt-4">
+        {home.title}
+      </h2>
+
+      <p className="mt-6 text-gray-400 leading-relaxed">
+        {home.description}
+      </p>
+
+      <div className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
+
+        {home.linkedin && (
+          <a
+            href={home.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            className="px-6 py-3 bg-[#0A66C2] rounded-xl flex items-center gap-2 shadow-lg hover:scale-105 transition"
+          >
+            <FaLinkedin /> LinkedIn
+          </a>
+        )}
+
+        {home.github && (
+          <a
+            href={home.github}
+            target="_blank"
+            rel="noreferrer"
+            className="px-6 py-3 bg-gray-800 rounded-xl flex items-center gap-2 shadow-lg hover:scale-105 transition"
+          >
+            <FaGithub /> GitHub
+          </a>
+        )}
+
+        {home.email && (
+          <a
+            href={`mailto:${home.email}`}
+            className="px-6 py-3 bg-[#FF7722] text-black rounded-xl font-semibold shadow-lg hover:scale-105 transition"
+          >
+            Hire Me
+          </a>
+        )}
+
+        {home.resume && (
+          <a
+            href={`http://localhost:5000${home.resume}`}
+            target="_blank"
+            rel="noreferrer"
+            className="px-6 py-3 bg-white text-black rounded-xl font-semibold shadow-lg hover:scale-105 transition"
+          >
+            Download Resume
+          </a>
+        )}
+      </div>
+    </div>
+
+    {/* RIGHT SIDE - PROFILE IMAGE */}
+    {home.profileImage && (
+      <div className="relative">
+        <img
+          src={`http://localhost:5000${home.profileImage}`}
+          alt="Profile"
+          className="
+            w-64 h-64
+            md:w-96 md:h-96
+            rounded-full
+            object-cover
+            border-4 border-[#FF7722]
+            shadow-2xl
+          "
+        />
+
+        {/* Subtle glow effect */}
+        <div className="absolute inset-0 rounded-full border-4 border-[#FF7722] blur-xl opacity-30"></div>
+      </div>
+    )}
+  </section>
 )}
 
-          </div>
 
-          {/* Image */}
-          <div className="flex justify-center">
-            <img
-              src={`http://localhost:5000${home.profileImage}`}
-              alt="Profile"
-              className="w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-[#FF7722] object-cover shadow-2xl"
-            />
-          </div>
-        </div>
-      )}
-
-      {/* About Section */}
+      {/* ABOUT */}
       {about && (
-        <div
-          id="about"
-          className="px-6 md:px-16 py-20 bg-[#111111] text-center"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#FF7722]">
-            {about.heading}
-          </h2>
-
-          <p className="max-w-3xl mx-auto mt-6 text-gray-400 leading-relaxed text-lg">
-            {about.description}
-          </p>
-        </div>
+        <section id="about" className="px-6 md:px-16 py-20 bg-[#111111] text-center">
+          <h2 className="text-3xl text-[#FF7722] font-bold">{about.heading}</h2>
+          <p className="mt-6 text-gray-400 max-w-3xl mx-auto">{about.description}</p>
+        </section>
       )}
 
-      {/* Skills Section */}
-<div
-  id="skills"
-  className="px-6 md:px-16 py-20 bg-black text-center"
->
-  <h2 className="text-3xl md:text-4xl font-bold text-[#FF7722]">
-    My Skills
-  </h2>
-
-  <div className="mt-12 grid gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-    {skills.map((skill) => (
-      <div
-        key={skill._id}
-        className="bg-[#111111] p-6 rounded-xl border border-gray-800 hover:scale-105 transition duration-300 flex flex-col items-center"
-      >
-        <div className="text-4xl mb-4 text-[#FF7722]">
-          {iconMap[skill.icon] &&
-            React.createElement(iconMap[skill.icon])}
+      {/* SKILLS */}
+      <section id="skills" className="px-6 md:px-16 py-20">
+        <h2 className="text-3xl text-[#FF7722] font-bold text-center">My Skills</h2>
+        <div className="grid gap-6 mt-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {skills.map((skill) => (
+            <div key={skill._id}
+                 className="bg-[#111111] p-6 rounded-xl text-center">
+              <div className="text-4xl text-[#FF7722] mb-2">
+                {iconMap[skill.icon] &&
+                  iconMap[skill.icon]({})}
+              </div>
+              <p>{skill.name}</p>
+            </div>
+          ))}
         </div>
+      </section>
 
-
-        <h3 className="text-lg font-semibold text-white">
-          {skill.name}
-        </h3>
-      </div>
-    ))}
-  </div>
-</div>
-
-
-      {/* Projects Section */}
-      <div
-        id="projects"
-        className="px-6 md:px-16 py-20 bg-[#111111]"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-[#FF7722] text-center">
-          My Projects
-        </h2>
-
-        <div className="mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+      {/* PROJECTS */}
+      <section id="projects" className="px-6 md:px-16 py-20 bg-[#111111]">
+        <h2 className="text-3xl text-[#FF7722] font-bold text-center">Projects</h2>
+        <div className="grid gap-8 mt-10 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
-            <div
-              key={project._id}
-              className="bg-black rounded-xl overflow-hidden shadow-lg border border-gray-800 hover:scale-105 transition duration-300"
-            >
-              <img
-                src={`http://localhost:5000${project.image}`}
-                alt={project.title}
-                className="w-full h-48 object-cover"
-              />
-
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-[#FF7722]">
-                  {project.title}
-                </h3>
-
-                <p className="text-gray-400 mt-3 text-sm">
-                  {project.description}
-                </p>
-
-                <p className="text-gray-500 mt-3 text-xs">
-                  Tech: {project.tech}
-                </p>
-
-                <div className="flex gap-4 mt-5">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 text-sm"
-                  >
+            <div key={project._id}
+                 className="bg-black rounded-lg overflow-hidden">
+              {project.image && (
+                <img src={`http://localhost:5000${project.image}`}
+                     alt={project.title}
+                     className="w-full h-48 object-cover" />
+              )}
+              <div className="p-4">
+                <h3 className="text-[#FF7722] font-bold">{project.title}</h3>
+                <p className="text-gray-400 mt-2">{project.description}</p>
+                <div className="flex gap-4 mt-4">
+                  <a href={project.github} target="_blank" rel="noreferrer"
+                     className="bg-gray-800 px-3 py-1 rounded">
                     GitHub
                   </a>
-
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 bg-[#FF7722] text-black rounded-md hover:opacity-90 text-sm"
-                  >
+                  <a href={project.live} target="_blank" rel="noreferrer"
+                     className="bg-[#FF7722] text-black px-3 py-1 rounded">
                     Live
                   </a>
                 </div>
@@ -308,109 +226,48 @@ return (
             </div>
           ))}
         </div>
-      </div>
+      </section>
 
-      {/* Contact Section */}
-      <div
-        id="contact"
-        className="px-6 md:px-16 py-20 bg-black"
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-[#FF7722] text-center">
-          Contact Me
-        </h2>
-
-        <div className="mt-12 grid md:grid-cols-2 gap-12">
-          {/* Info */}
-          <div className="text-gray-300 space-y-4">
-            {contact && (
-              <>
-                <p>
-                  <span className="text-[#FF7722] font-semibold">
-                    Email:
-                  </span>{" "}
-                  {contact.email}
-                </p>
-                <p>
-                  <span className="text-[#FF7722] font-semibold">
-                    Phone:
-                  </span>{" "}
-                  {contact.phone}
-                </p>
-                <p>
-                  <span className="text-[#FF7722] font-semibold">
-                    Location:
-                  </span>{" "}
-                  {contact.location}
-                </p>
-              </>
-            )}
-          </div>
-
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full p-3 bg-[#111111] border border-gray-700 rounded-lg text-white focus:border-[#FF7722] outline-none"
-            />
-
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full p-3 bg-[#111111] border border-gray-700 rounded-lg text-white focus:border-[#FF7722] outline-none"
-            />
-
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              rows="5"
-              className="w-full p-3 bg-[#111111] border border-gray-700 rounded-lg text-white focus:border-[#FF7722] outline-none"
-            ></textarea>
-
-            <button
-              type="submit"
-              className="px-6 py-3 bg-[#FF7722] text-black font-semibold rounded-lg hover:scale-105 transition"
-            >
-              Send Message
-            </button>
-          </form>
-        </div>
-      </div>
+      {/* CONTACT */}
+      <section id="contact" className="px-6 md:px-16 py-20">
+        <h2 className="text-3xl text-[#FF7722] font-bold text-center">Contact Me</h2>
+        <form onSubmit={handleSubmit} className="max-w-xl mx-auto mt-8 space-y-4">
+          <input name="name" value={formData.name}
+                 onChange={handleChange}
+                 placeholder="Your Name"
+                 className="w-full p-3 bg-[#111111] rounded" />
+          <input name="email" value={formData.email}
+                 onChange={handleChange}
+                 placeholder="Your Email"
+                 className="w-full p-3 bg-[#111111] rounded" />
+          <textarea name="message" value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Message"
+                    rows="4"
+                    className="w-full p-3 bg-[#111111] rounded" />
+          <button className="bg-[#FF7722] text-black px-6 py-2 rounded">
+            Send Message
+          </button>
+        </form>
+      </section>
     </div>
-     } />
-    <Route 
-    path="/login" 
-    element={
-    <Login />} />
-    <Route 
-    path="/signup" 
-    element={
-    <Signup />} />
-    <Route 
-    path="/forgot-password" 
-    element={
-    <ForgotPassword />} />
-    
-    <Route 
-      path="/admin" 
-      element={
-        <ProtectedRoute>
-          <Admin />
-        </ProtectedRoute>
-      } 
-    />
-  </Routes>
+  );
+
+  return (
+      <Routes>
+        <Route path="/" element={<Portfolio />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <Admin />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
   );
 }
 
