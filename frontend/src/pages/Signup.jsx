@@ -15,9 +15,7 @@ function Signup() {
   // 🔒 Redirect if already logged in
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) {
-      navigate("/admin");
-    }
+    if (token) navigate("/admin");
   }, [navigate]);
 
   // 🚀 Send OTP
@@ -33,12 +31,11 @@ function Signup() {
 
       alert("OTP sent to your email 📩");
       setStep(2);
-
     } catch (error) {
       alert(error.response?.data?.message || "Error sending OTP ❌");
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   // 🚀 Verify OTP & Create Admin
@@ -54,12 +51,11 @@ function Signup() {
 
       alert("Signup successful 🎉 Please login");
       navigate("/login");
-
     } catch (error) {
       alert(error.response?.data?.message || "OTP verification failed ❌");
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   return (
@@ -84,9 +80,15 @@ function Signup() {
 
             <button
               disabled={loading}
-              className="w-full py-3 bg-[#FF7722] text-black font-semibold rounded-lg hover:scale-105 transition"
+              className={`w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition
+                ${loading
+                  ? "bg-gray-600 cursor-not-allowed"
+                  : "bg-[#FF7722] text-black hover:scale-105"}`}
             >
-              {loading ? "Sending..." : "Send OTP"}
+              {loading && (
+                <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></span>
+              )}
+              {loading ? "Sending OTP..." : "Send OTP"}
             </button>
           </form>
         )}
@@ -123,8 +125,14 @@ function Signup() {
 
             <button
               disabled={loading}
-              className="w-full py-3 bg-[#FF7722] text-black font-semibold rounded-lg hover:scale-105 transition"
+              className={`w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition
+                ${loading
+                  ? "bg-gray-600 cursor-not-allowed"
+                  : "bg-[#FF7722] text-black hover:scale-105"}`}
             >
+              {loading && (
+                <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></span>
+              )}
               {loading ? "Verifying..." : "Verify & Create Admin"}
             </button>
           </form>

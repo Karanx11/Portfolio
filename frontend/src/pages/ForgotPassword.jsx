@@ -7,30 +7,47 @@ function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [newPassword, setNewPassword] = useState("");
+
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSendOtp = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    await axios.post(
-      "http://localhost:5000/api/auth/forgot-password",
-      { email }
-    );
+    try {
+      await axios.post(
+        "http://localhost:5000/api/auth/forgot-password",
+        { email }
+      );
 
-    alert("OTP sent 📩");
-    setStep(2);
+      alert("OTP sent 📩");
+      setStep(2);
+    } catch (err) {
+      alert(err.response?.data?.message || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    await axios.post(
-      "http://localhost:5000/api/auth/reset-password",
-      { email, otp, newPassword }
-    );
+    try {
+      await axios.post(
+        "http://localhost:5000/api/auth/reset-password",
+        { email, otp, newPassword }
+      );
 
-    alert("Password updated ✅");
-    navigate("/login");
+      alert("Password updated ✅");
+      navigate("/login");
+    } catch (err) {
+      alert(err.response?.data?.message || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -51,8 +68,16 @@ function ForgotPassword() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <button className="w-full py-3 bg-[#FF7722] text-black rounded-lg">
-              Send OTP
+
+            <button
+              disabled={loading}
+              className={`w-full py-3 rounded-lg flex items-center justify-center gap-2
+                ${loading ? "bg-gray-600 cursor-not-allowed" : "bg-[#FF7722] text-black"}`}
+            >
+              {loading && (
+                <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></span>
+              )}
+              {loading ? "Sending OTP..." : "Send OTP"}
             </button>
           </form>
         )}
@@ -67,6 +92,7 @@ function ForgotPassword() {
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
             />
+
             <input
               type="password"
               placeholder="New Password"
@@ -75,8 +101,16 @@ function ForgotPassword() {
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
             />
-            <button className="w-full py-3 bg-[#FF7722] text-black rounded-lg">
-              Reset Password
+
+            <button
+              disabled={loading}
+              className={`w-full py-3 rounded-lg flex items-center justify-center gap-2
+                ${loading ? "bg-gray-600 cursor-not-allowed" : "bg-[#FF7722] text-black"}`}
+            >
+              {loading && (
+                <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></span>
+              )}
+              {loading ? "Resetting..." : "Reset Password"}
             </button>
           </form>
         )}
