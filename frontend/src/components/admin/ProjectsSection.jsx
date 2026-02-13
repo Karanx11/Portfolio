@@ -102,13 +102,15 @@ export default function ProjectsSection({ projects, setProjects }) {
           required
         />
 
-        <input
+        <textarea
           name="tech"
           value={newProject.tech}
           onChange={handleChange}
           className="p-3 bg-black border border-gray-700 rounded"
-          placeholder="Tech Stack"
+          placeholder="Tech Stack (e.g. React, Node.js, MongoDB)"
+          rows={2}
         />
+
 
         <input
           name="github"

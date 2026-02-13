@@ -19,13 +19,13 @@ function Navbar() {
   ];
 
   const scrollToSection = (id) => {
-    setActive(id); // 👈 instant active update
+    setActive(id); 
 
     const section = document.getElementById(id);
     section?.scrollIntoView({ behavior: "smooth" });
   };
 
-  // ✅ Auto-detect active section on scroll
+  //  Auto-detect active section on scroll
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 3;
@@ -47,7 +47,7 @@ function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // 👈 run once on load
+    handleScroll(); 
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [links]);
@@ -60,7 +60,7 @@ function Navbar() {
           className="text-xl font-bold text-[#FF7722] cursor-pointer"
           onClick={() => scrollToSection("home")}
         >
-          Karan
+          Portfolio
         </h1>
 
         <div className="flex gap-8">

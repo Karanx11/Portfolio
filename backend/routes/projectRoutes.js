@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// ADD Project
+// ADD Project (ADMIN ONLY)
 router.post("/", verifyToken, upload.single("image"), async (req, res) => {
   try {
     const newProject = new Project({
@@ -36,18 +36,17 @@ router.post("/", verifyToken, upload.single("image"), async (req, res) => {
   }
 });
 
-
-// GET All Projects
-router.get("/", verifyToken, async (req, res) => {
+// GET Projects (PUBLIC)
+router.get("/", async (req, res) => {
   try {
-    const projects = await Project.find();
+    const projects = await Project.find().sort({ createdAt: -1 });
     res.json(projects);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
-// DELETE Project
+// DELETE Project (ADMIN ONLY)
 router.delete("/:id", verifyToken, async (req, res) => {
   try {
     await Project.findByIdAndDelete(req.params.id);
