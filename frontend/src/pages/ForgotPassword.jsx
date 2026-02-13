@@ -1,13 +1,12 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api from "../utils/axiosConfig";
 
 function ForgotPassword() {
   const [step, setStep] = useState(1);
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [newPassword, setNewPassword] = useState("");
-
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -17,11 +16,7 @@ function ForgotPassword() {
     setLoading(true);
 
     try {
-      await axios.post(
-        "http://localhost:5000/api/auth/forgot-password",
-        { email }
-      );
-
+      await api.post("/auth/forgot-password", { email });
       alert("OTP sent 📩");
       setStep(2);
     } catch (err) {
@@ -36,10 +31,11 @@ function ForgotPassword() {
     setLoading(true);
 
     try {
-      await axios.post(
-        "http://localhost:5000/api/auth/reset-password",
-        { email, otp, newPassword }
-      );
+      await api.post("/auth/reset-password", {
+        email,
+        otp,
+        newPassword,
+      });
 
       alert("Password updated ✅");
       navigate("/login");
@@ -53,7 +49,6 @@ function ForgotPassword() {
   return (
     <div className="min-h-screen bg-black flex items-center justify-center text-white">
       <div className="bg-[#111111] p-8 rounded-xl w-80 space-y-6">
-
         <h2 className="text-2xl text-[#FF7722] font-bold text-center">
           Reset Password
         </h2>
@@ -72,7 +67,9 @@ function ForgotPassword() {
             <button
               disabled={loading}
               className={`w-full py-3 rounded-lg flex items-center justify-center gap-2
-                ${loading ? "bg-gray-600 cursor-not-allowed" : "bg-[#FF7722] text-black"}`}
+                ${loading
+                  ? "bg-gray-600 cursor-not-allowed"
+                  : "bg-[#FF7722] text-black"}`}
             >
               {loading && (
                 <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></span>
@@ -105,7 +102,9 @@ function ForgotPassword() {
             <button
               disabled={loading}
               className={`w-full py-3 rounded-lg flex items-center justify-center gap-2
-                ${loading ? "bg-gray-600 cursor-not-allowed" : "bg-[#FF7722] text-black"}`}
+                ${loading
+                  ? "bg-gray-600 cursor-not-allowed"
+                  : "bg-[#FF7722] text-black"}`}
             >
               {loading && (
                 <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></span>
@@ -114,7 +113,6 @@ function ForgotPassword() {
             </button>
           </form>
         )}
-
       </div>
     </div>
   );

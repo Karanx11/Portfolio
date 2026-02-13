@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api from "../utils/axiosConfig";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -11,15 +11,12 @@ function Login() {
   // 🔒 Redirect if already logged in
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) {
-      navigate("/admin");
-    }
+    if (token) navigate("/admin");
   }, [navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // Prevent login again if already logged in
     const existingToken = localStorage.getItem("token");
     if (existingToken) {
       navigate("/admin");
@@ -27,16 +24,16 @@ function Login() {
     }
 
     try {
-      const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
-        { email, password }
-      );
+      const res = await api.post("/auth/login", {
+        email,
+        password,
+      });
 
       localStorage.setItem("token", res.data.token);
       navigate("/admin");
 
     } catch (error) {
-      alert("Invalid credentials ❌");
+      alert(error.response?.data?.message || "Invalid credentials ❌");
     }
   };
 
@@ -50,7 +47,6 @@ function Login() {
           Admin Login
         </h2>
 
-        {/* Email */}
         <input
           type="email"
           placeholder="Email"
@@ -60,7 +56,6 @@ function Login() {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        {/* Password with toggle */}
         <div className="relative">
           <input
             type={showPassword ? "text" : "password"}
@@ -79,12 +74,10 @@ function Login() {
           </span>
         </div>
 
-        {/* Login Button */}
-        <button className="w-full py-3 bg-[#FF7722] text-black font-semibold rounded-lg hover:scale-105 transition duration-200">
+        <button className="w-full py-3 bg-[#FF7722] text-black font-semibold rounded-lg hover:scale-105 transition">
           Login
         </button>
 
-        {/* Forgot Password */}
         <p
           onClick={() => navigate("/forgot-password")}
           className="text-sm text-gray-400 cursor-pointer hover:text-[#FF7722] text-center"
@@ -92,7 +85,6 @@ function Login() {
           Forgot Password?
         </p>
 
-        {/* Signup Link */}
         <p className="text-sm text-gray-400 text-center">
           Don't have an account?{" "}
           <span
