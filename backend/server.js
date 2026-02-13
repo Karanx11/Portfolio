@@ -23,7 +23,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://your-frontend.vercel.app", // replace later
+      "https://portfolio-eight-liart-94.vercel.app"
     ],
     credentials: true,
   })
