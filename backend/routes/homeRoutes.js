@@ -8,34 +8,31 @@ const { CloudinaryStorage } = require("multer-storage-cloudinary");
 const cloudinary = require("../config/cloudinary");
 
 /* =========================
-   CLOUDINARY STORAGE
+   SINGLE CLOUDINARY STORAGE
 ========================= */
-
-// Profile image storage
-const imageStorage = new CloudinaryStorage({
+const storage = new CloudinaryStorage({
   cloudinary,
-  params: {
-    folder: "portfolio/profile",
-    allowed_formats: ["jpg", "jpeg", "png", "webp"],
+  params: (req, file) => {
+    // Profile Image
+    if (file.fieldname === "profileImage") {
+      return {
+        folder: "portfolio/profile",
+        allowed_formats: ["jpg", "jpeg", "png", "webp"],
+      };
+    }
+
+    // Resume PDF
+    if (file.fieldname === "resume") {
+      return {
+        folder: "portfolio/resume",
+        resource_type: "raw",
+        allowed_formats: ["pdf"],
+      };
+    }
   },
 });
 
-// Resume storage (PDF)
-const resumeStorage = new CloudinaryStorage({
-  cloudinary,
-  params: {
-    folder: "portfolio/resume",
-    resource_type: "raw", // IMPORTANT for PDFs
-    allowed_formats: ["pdf"],
-  },
-});
-
-const upload = multer({
-  storage: (req, file) => {
-    if (file.fieldname === "profileImage") return imageStorage;
-    if (file.fieldname === "resume") return resumeStorage;
-  },
-});
+const upload = multer({ storage });
 
 /* =========================
    CREATE / UPDATE HOME
@@ -69,12 +66,12 @@ router.post(
       };
 
       if (home) {
-        const updatedHome = await Home.findOneAndUpdate(
+        const updated = await Home.findOneAndUpdate(
           {},
           updatedData,
-          { new: true }
+          { returnDocument: "after" }
         );
-        return res.json(updatedHome);
+        return res.json(updated);
       }
 
       const newHome = new Home(updatedData);
@@ -82,13 +79,14 @@ router.post(
       res.status(201).json(savedHome);
 
     } catch (error) {
+      console.error(error);
       res.status(500).json({ message: error.message });
     }
   }
 );
 
 /* =========================
-   GET HOME DATA (PUBLIC)
+   GET HOME (PUBLIC)
 ========================= */
 router.get("/", async (req, res) => {
   try {
