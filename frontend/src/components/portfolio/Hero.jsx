@@ -3,8 +3,6 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 export default function Hero({ home }) {
   if (!home) return null;
 
-  const API_URL = import.meta.env.VITE_API_URL;
-
   return (
     <section
       id="home"
@@ -24,15 +22,13 @@ export default function Hero({ home }) {
           {home.description}
         </p>
 
-        {/* ACTION BUTTONS */}
         <div className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
-
           {home.linkedin && (
             <a
               href={home.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="px-6 py-3 bg-[#0A66C2] rounded-xl flex items-center gap-2 shadow-lg hover:scale-105 transition"
+              className="px-6 py-3 bg-[#0A66C2] rounded-xl flex items-center gap-2"
             >
               <FaLinkedin /> LinkedIn
             </a>
@@ -43,7 +39,7 @@ export default function Hero({ home }) {
               href={home.github}
               target="_blank"
               rel="noreferrer"
-              className="px-6 py-3 bg-gray-800 rounded-xl flex items-center gap-2 shadow-lg hover:scale-105 transition"
+              className="px-6 py-3 bg-gray-800 rounded-xl flex items-center gap-2"
             >
               <FaGithub /> GitHub
             </a>
@@ -52,19 +48,19 @@ export default function Hero({ home }) {
           {home.email && (
             <a
               href={`mailto:${home.email}`}
-              className="px-6 py-3 bg-[#FF7722] text-black rounded-xl font-semibold shadow-lg hover:scale-105 transition"
+              className="px-6 py-3 bg-[#FF7722] text-black rounded-xl font-semibold"
             >
               Hire Me
             </a>
           )}
 
-          {/* RESUME */}
+          {/* ✅ CLOUDINARY PDF */}
           {home.resume && (
             <a
-              href={`${API_URL}${home.resume}`}
+              href={home.resume}
               target="_blank"
               rel="noreferrer"
-              className="px-6 py-3 bg-white text-black rounded-xl font-semibold shadow-lg hover:scale-105 transition"
+              className="px-6 py-3 bg-white text-black rounded-xl font-semibold"
             >
               Download Resume
             </a>
@@ -76,7 +72,7 @@ export default function Hero({ home }) {
       {home.profileImage && (
         <div className="relative">
           <img
-            src={`${API_URL}${home.profileImage}`}
+            src={home.profileImage}
             alt="Profile"
             className="w-64 h-64 md:w-96 md:h-96 rounded-full border-4 border-[#FF7722] object-cover"
           />

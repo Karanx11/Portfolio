@@ -14,9 +14,10 @@ export default function Projects({ projects }) {
               key={project._id}
               className="bg-black rounded-lg overflow-hidden hover:scale-105 transition"
             >
+              {/* ✅ CLOUDINARY IMAGE */}
               {project.image && (
                 <img
-                  src={`${import.meta.env.VITE_API_URL}${project.image}`}
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover"
                 />
@@ -41,7 +42,7 @@ export default function Projects({ projects }) {
                       href={project.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded hover:bg-gray-700 transition"
+                      className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded"
                     >
                       <FaGithub /> GitHub
                     </a>
@@ -52,7 +53,7 @@ export default function Projects({ projects }) {
                       href={project.live}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-[#FF7722] text-black rounded hover:scale-105 transition"
+                      className="flex items-center gap-2 px-4 py-2 bg-[#FF7722] text-black rounded"
                     >
                       <FaExternalLinkAlt /> Live
                     </a>
