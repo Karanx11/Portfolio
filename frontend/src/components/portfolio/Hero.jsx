@@ -3,6 +3,8 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 export default function Hero({ home }) {
   if (!home) return null;
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   return (
     <section
       id="home"
@@ -25,7 +27,6 @@ export default function Hero({ home }) {
         {/* ACTION BUTTONS */}
         <div className="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
 
-          {/* LinkedIn */}
           {home.linkedin && (
             <a
               href={home.linkedin}
@@ -37,7 +38,6 @@ export default function Hero({ home }) {
             </a>
           )}
 
-          {/* GitHub */}
           {home.github && (
             <a
               href={home.github}
@@ -49,7 +49,6 @@ export default function Hero({ home }) {
             </a>
           )}
 
-          {/* Hire Me */}
           {home.email && (
             <a
               href={`mailto:${home.email}`}
@@ -59,10 +58,10 @@ export default function Hero({ home }) {
             </a>
           )}
 
-          {/* Download Resume */}
+          {/* RESUME */}
           {home.resume && (
             <a
-              href={`http://localhost:5000${home.resume}`}
+              href={`${API_URL}${home.resume}`}
               target="_blank"
               rel="noreferrer"
               className="px-6 py-3 bg-white text-black rounded-xl font-semibold shadow-lg hover:scale-105 transition"
@@ -77,7 +76,7 @@ export default function Hero({ home }) {
       {home.profileImage && (
         <div className="relative">
           <img
-            src={`http://localhost:5000${home.profileImage}`}
+            src={`${API_URL}${home.profileImage}`}
             alt="Profile"
             className="w-64 h-64 md:w-96 md:h-96 rounded-full border-4 border-[#FF7722] object-cover"
           />

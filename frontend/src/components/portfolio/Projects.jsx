@@ -16,7 +16,7 @@ export default function Projects({ projects }) {
             >
               {project.image && (
                 <img
-                  src={`http://localhost:5000${project.image}`}
+                  src={`${import.meta.env.VITE_API_URL}${project.image}`}
                   alt={project.title}
                   className="w-full h-48 object-cover"
                 />
@@ -28,7 +28,9 @@ export default function Projects({ projects }) {
 
                 {project.tech && (
                   <p className="text-sm text-gray-500 mt-3">
-                    <span className="text-gray-300 font-semibold">Tech:</span>{" "}
+                    <span className="text-gray-300 font-semibold">
+                      Tech:
+                    </span>{" "}
                     {project.tech}
                   </p>
                 )}
@@ -39,7 +41,7 @@ export default function Projects({ projects }) {
                       href={project.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded"
+                      className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded hover:bg-gray-700 transition"
                     >
                       <FaGithub /> GitHub
                     </a>
@@ -50,7 +52,7 @@ export default function Projects({ projects }) {
                       href={project.live}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-[#FF7722] text-black rounded"
+                      className="flex items-center gap-2 px-4 py-2 bg-[#FF7722] text-black rounded hover:scale-105 transition"
                     >
                       <FaExternalLinkAlt /> Live
                     </a>
