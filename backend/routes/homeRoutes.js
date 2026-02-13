@@ -2,25 +2,46 @@ const express = require("express");
 const router = express.Router();
 const Home = require("../models/Home");
 const multer = require("multer");
-const path = require("path");
 const verifyToken = require("../middleware/authMiddleware");
 
-// Storage config
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname));
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const cloudinary = require("../config/cloudinary");
+
+/* =========================
+   CLOUDINARY STORAGE
+========================= */
+
+// Profile image storage
+const imageStorage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "portfolio/profile",
+    allowed_formats: ["jpg", "jpeg", "png", "webp"],
   },
 });
 
-const upload = multer({ storage });
+// Resume storage (PDF)
+const resumeStorage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "portfolio/resume",
+    resource_type: "raw", // IMPORTANT for PDFs
+    allowed_formats: ["pdf"],
+  },
+});
 
+const upload = multer({
+  storage: (req, file) => {
+    if (file.fieldname === "profileImage") return imageStorage;
+    if (file.fieldname === "resume") return resumeStorage;
+  },
+});
 
-// CREATE or UPDATE Home (Single Document)
+/* =========================
+   CREATE / UPDATE HOME
+========================= */
 router.post(
-  "/", 
+  "/",
   verifyToken,
   upload.fields([
     { name: "profileImage", maxCount: 1 },
@@ -38,22 +59,22 @@ router.post(
         github: req.body.github,
         email: req.body.email,
 
-        // Profile Image
         profileImage: req.files?.profileImage
-          ? `/uploads/${req.files.profileImage[0].filename}`
-          : req.body.profileImage,
+          ? req.files.profileImage[0].path
+          : home?.profileImage,
 
-        // Resume File
         resume: req.files?.resume
-          ? `/uploads/${req.files.resume[0].filename}`
-          : req.body.resume,
+          ? req.files.resume[0].path
+          : home?.resume,
       };
 
       if (home) {
-        home = await Home.findOneAndUpdate({}, updatedData, {
-          new: true,
-        });
-        return res.json(home);
+        const updatedHome = await Home.findOneAndUpdate(
+          {},
+          updatedData,
+          { new: true }
+        );
+        return res.json(updatedHome);
       }
 
       const newHome = new Home(updatedData);
@@ -66,8 +87,9 @@ router.post(
   }
 );
 
-
-// GET Single Home Data
+/* =========================
+   GET HOME DATA (PUBLIC)
+========================= */
 router.get("/", async (req, res) => {
   try {
     const home = await Home.findOne();

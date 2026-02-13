@@ -2,22 +2,28 @@ const express = require("express");
 const router = express.Router();
 const Project = require("../models/Project");
 const multer = require("multer");
-const path = require("path");
 const verifyToken = require("../middleware/authMiddleware");
 
-// Storage config
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname));
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const cloudinary = require("../config/cloudinary");
+
+/* =========================
+   CLOUDINARY STORAGE
+========================= */
+
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: "portfolio/projects",
+    allowed_formats: ["jpg", "jpeg", "png", "webp"],
   },
 });
 
 const upload = multer({ storage });
 
-// ADD Project (ADMIN ONLY)
+/* =========================
+   ADD PROJECT (ADMIN)
+========================= */
 router.post("/", verifyToken, upload.single("image"), async (req, res) => {
   try {
     const newProject = new Project({
@@ -26,7 +32,7 @@ router.post("/", verifyToken, upload.single("image"), async (req, res) => {
       tech: req.body.tech,
       github: req.body.github,
       live: req.body.live,
-      image: req.file ? `/uploads/${req.file.filename}` : "",
+      image: req.file ? req.file.path : "", // ✅ Cloudinary URL
     });
 
     const savedProject = await newProject.save();
@@ -36,7 +42,9 @@ router.post("/", verifyToken, upload.single("image"), async (req, res) => {
   }
 });
 
-// GET Projects (PUBLIC)
+/* =========================
+   GET PROJECTS (PUBLIC)
+========================= */
 router.get("/", async (req, res) => {
   try {
     const projects = await Project.find().sort({ createdAt: -1 });
@@ -46,9 +54,21 @@ router.get("/", async (req, res) => {
   }
 });
 
-// DELETE Project (ADMIN ONLY)
+/* =========================
+   DELETE PROJECT (ADMIN)
+========================= */
 router.delete("/:id", verifyToken, async (req, res) => {
   try {
+    const project = await Project.findById(req.params.id);
+
+    // delete image from cloudinary
+    if (project?.image) {
+      const publicId = project.image.split("/").pop().split(".")[0];
+      await cloudinary.uploader.destroy(
+        `portfolio/projects/${publicId}`
+      );
+    }
+
     await Project.findByIdAndDelete(req.params.id);
     res.json({ message: "Project deleted" });
   } catch (error) {
