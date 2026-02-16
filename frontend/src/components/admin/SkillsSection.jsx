@@ -72,3 +72,4 @@ export default function SkillsSection({ skills, setSkills }) {
     </section>
   );
 }
+
