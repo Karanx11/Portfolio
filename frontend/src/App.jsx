@@ -1,29 +1,28 @@
-import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import BottomNav from "./components/BottomNav";
+import Achievements from "./pages/Achievements";
 
-import Portfolio from "./pages/Portfolio";
-import Admin from "./pages/Admin";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import ForgotPassword from "./pages/ForgotPassword";
-import ProtectedRoute from "./routes/ProtectedRoute";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Skills from "./pages/Skills";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Portfolio />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} />
+    <>
+      <Navbar />
+      <BottomNav />
 
-      <Route
-        path="/admin"
-        element={
-          <ProtectedRoute>
-            <Admin />
-          </ProtectedRoute>
-        }
-      />
-    </Routes>
+      <main className="pt-5 pb-32">
+        <Home />
+        <About />
+        <Skills />
+        <Projects />
+        <Achievements />
+        <Contact />
+      </main>
+    </>
   );
 }
 
