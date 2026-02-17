@@ -14,10 +14,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "portfolio",
-        "template_85yvazj",
+        "portfolio",                 // Service ID
+        "template_85yvazj",           // Template ID
         formRef.current,
-        "q2iYWsXObVS2kLdih"
+        "q2iYWsXObVS2kLdih"           // Public Key
       )
       .then(
         () => {
@@ -48,7 +48,7 @@ const Contact = () => {
 
         <div className="grid md:grid-cols-2 gap-12">
 
-          {/* LEFT */}
+          {/* LEFT – CONTACT INFO */}
           <div>
             <h3 className="text-xl font-semibold text-white mb-6">
               Let’s Connect
@@ -60,29 +60,31 @@ const Contact = () => {
                   <FaEnvelope />
                 </div>
                 <span className="text-white/80">
-                  karansharma@example.com
+                  karanx11.72898@gmail.com
                 </span>
               </div>
 
               <a
-                href="https://linkedin.com/in/karansharma"
+                href="https://www.linkedin.com/in/karan-s-290241298"
                 target="_blank"
-                className="flex items-center gap-4 text-white/80 hover:text-[#FA7D09]"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 text-white/80 hover:text-[#FA7D09] transition"
               >
                 <FaLinkedin /> LinkedIn
               </a>
 
               <a
-                href="https://github.com/karansharma"
+                href="https://github.com/Karanx11"
                 target="_blank"
-                className="flex items-center gap-4 text-white/80 hover:text-[#FA7D09]"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 text-white/80 hover:text-[#FA7D09] transition"
               >
                 <FaGithub /> GitHub
               </a>
             </div>
           </div>
 
-          {/* RIGHT – FORM */}
+          {/* RIGHT – CONTACT FORM */}
           <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8">
             <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
 
@@ -91,7 +93,8 @@ const Contact = () => {
                 name="from_name"
                 placeholder="Your Name"
                 required
-                className="w-full px-4 py-3 rounded-lg bg-black/60 border border-white/10 text-white"
+                className="w-full px-4 py-3 rounded-lg bg-black/60 border border-white/10
+                focus:outline-none focus:border-[#FA7D09] text-white"
               />
 
               <input
@@ -99,7 +102,8 @@ const Contact = () => {
                 name="from_email"
                 placeholder="Your Email"
                 required
-                className="w-full px-4 py-3 rounded-lg bg-black/60 border border-white/10 text-white"
+                className="w-full px-4 py-3 rounded-lg bg-black/60 border border-white/10
+                focus:outline-none focus:border-[#FA7D09] text-white"
               />
 
               <textarea
@@ -107,14 +111,15 @@ const Contact = () => {
                 rows="4"
                 placeholder="Your Message"
                 required
-                className="w-full px-4 py-3 rounded-lg bg-black/60 border border-white/10 text-white resize-none"
+                className="w-full px-4 py-3 rounded-lg bg-black/60 border border-white/10
+                focus:outline-none focus:border-[#FA7D09] text-white resize-none"
               />
 
               <button
                 type="submit"
                 disabled={loading}
                 className="w-full py-3 rounded-lg bg-[#FA7D09] text-black font-semibold
-                hover:bg-[#e96f08] transition"
+                hover:bg-[#e96f08] transition disabled:opacity-60"
               >
                 {loading ? "Sending..." : "Send Message"}
               </button>

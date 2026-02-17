@@ -33,31 +33,42 @@ const Home = () => {
           </p>
 
           {/* BUTTONS */}
-          <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
-            <a className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition">
-              LinkedIn
-            </a>
+<div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
+  
+  <a
+    href="https://www.linkedin.com/in/karan-s-290241298"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition"
+  >
+    LinkedIn
+  </a>
 
-            <a className="px-6 py-3 rounded-lg bg-gray-800 hover:bg-gray-700 transition">
-              GitHub
-            </a>
+  <a
+    href="https://github.com/Karanx11"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="px-6 py-3 rounded-lg bg-gray-800 hover:bg-gray-700 transition"
+  >
+    GitHub
+  </a>
 
-            <a
-              href="#contact"
-              className="px-6 py-3 rounded-lg bg-orange-500 text-black font-semibold hover:bg-orange-600 transition"
-            >
-              Hire Me
-            </a>
+  <a
+    href="#contact"
+    className="px-6 py-3 rounded-lg bg-orange-500 text-black font-semibold hover:bg-orange-600 transition"
+  >
+    Hire Me
+  </a>
 
-            <a
-                href="/Karan_Sharma.pdf"
-                download
-                className="px-6 py-3 rounded-lg bg-white text-black font-semibold hover:bg-gray-200 transition"
-                >
-                Download Resume
-            </a>
+  <a
+    href="/Karan_Sharma.pdf"
+    download
+    className="px-6 py-3 rounded-lg bg-white text-black font-semibold hover:bg-gray-200 transition"
+  >
+    Download Resume
+  </a>
 
-          </div>
+</div>
         </div>
 
         {/* RIGHT SIDE */}

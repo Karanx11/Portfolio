@@ -11,21 +11,16 @@ const projects = [
   {
     title: "🌐 Portfolio",
     description:
-      "A modern, responsive portfolio website with a glassmorphic dark UI. Includes desktop top navbar, mobile bottom app-style navigation, smooth scrolling, active section highlights, and admin-editable sections.",
-    tech: [
-      "React (Vite)",
-      "Tailwind CSS",
-      "JavaScript",
-      "Glassmorphism UI",
-    ],
+      "A modern, responsive portfolio website with a glassmorphic dark UI. Includes desktop top navbar, mobile bottom app-style navigation, smooth scrolling, and active section highlighting.",
+    tech: ["React (Vite)", "Tailwind CSS", "JavaScript", "Glassmorphism UI"],
     github: "https://github.com/Karanx11",
-    live: "#",
+    live: "https://karan-portfolio-x11.netlify.app/",
     image: portfolioImg,
   },
   {
     title: "🚀 RentKaro — Rental Marketplace Platform",
     description:
-      "A full-stack MERN rental marketplace where users can rent, sell, and manage products. Built as a modern alternative to OLX/Rentomojo with scalable backend architecture.",
+      "A full-stack MERN rental marketplace where users can rent, sell, and manage products. Built as a modern alternative to OLX/Rentomojo.",
     tech: [
       "React (Vite)",
       "Node.js",
@@ -35,20 +30,13 @@ const projects = [
       "AI Chatbot",
     ],
     github: "https://github.com/Karanx11/RentKaro",
-    live: "#",
     image: rentkaroImg,
   },
   {
     title: "📘 AI Study Planner",
     description:
-      "An AI-powered study planning platform that extracts syllabus topics from PDFs/images, tracks progress, predicts exam readiness, and generates personalized study plans.",
-    tech: [
-      "React",
-      "Tailwind CSS",
-      "Chart.js",
-      "Node.js",
-      "AI APIs",
-    ],
+      "An AI-powered study planning platform that extracts syllabus topics, tracks progress, predicts exam readiness, and generates personalized study plans.",
+    tech: ["React", "Tailwind CSS", "Chart.js", "Node.js", "AI APIs"],
     github: "https://github.com/Karanx11/AI-Study-Planner",
     live: "#",
     image: studyPlannerImg,
@@ -56,7 +44,7 @@ const projects = [
   {
     title: "🤖 Beepy — Smart Assistant Robot",
     description:
-      "An Arduino-based smart assistant robot with animated OLED eyes, Bluetooth voice commands, servo-based head movement, obstacle detection, and expressive behaviors.",
+      "An Arduino-based smart assistant robot with animated OLED eyes, Bluetooth control, servo-based head movement, and obstacle detection.",
     tech: [
       "Arduino",
       "C++",
@@ -71,7 +59,7 @@ const projects = [
   {
     title: "🚗 RoboRace — ESP32 Bluetooth Car",
     description:
-      "A Bluetooth-controlled racing car powered by ESP32 and driven using an Android app. Supports directional and optional voice-based commands.",
+      "A Bluetooth-controlled racing car powered by ESP32 and driven via an Android app with optional voice commands.",
     tech: [
       "ESP32",
       "C++",
@@ -86,10 +74,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section
-      id="projects"
-      className="min-h-screen flex items-center px-6 md:px-20 py-20 md:py-0"
-    >
+    <section id="projects" className="px-6 md:px-20 py-20">
       <div className="max-w-7xl mx-auto w-full">
 
         {/* SECTION TITLE */}
@@ -152,22 +137,25 @@ const Projects = () => {
                   <a
                     href={project.github}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm text-white/70
                     hover:text-[#FA7D09] transition"
                   >
                     <FaGithub /> GitHub
                   </a>
 
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2 text-sm text-white/70
-                    hover:text-[#FA7D09] transition"
-                  >
-                    <FaExternalLinkAlt /> Live
-                  </a>
+                  {/* ✅ Render Live button ONLY if link exists */}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm text-white/70
+                      hover:text-[#FA7D09] transition"
+                    >
+                      <FaExternalLinkAlt /> Live
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
