@@ -1,162 +1,132 @@
-# 🚀 MERN Portfolio with Admin Dashboard
+# 📌 Karan Sharma — Developer Portfolio
 
-    A full-stack personal portfolio website built using the MERN stack, featuring a secure admin dashboard where all content (Home, About, Skills, Projects, Contact) can be managed dynamically.
+    🚀 A modern, responsive developer portfolio website showcasing my full-stack, AI, and hardware projects, built with a clean glassmorphic dark UI and smooth user experience across devices.
 
-    The portfolio is fully responsive, optimized for mobile and desktop, and includes authentication, OTP-based signup, password reset, and auto skill icons.
+    Designed to reflect my skills, projects, and achievements in a professional and recruiter-friendly way.
 
 ## ✨ Features
 
-### 🌐 Public Portfolio
+    🌙 Dark Glassmorphism UI
 
-    Hero section with profile image, resume, and social links
-    About section (dynamic content)
-    Skills section with auto-detected icons
-    Projects with image upload, GitHub & Live links
-    Contact form (messages stored in DB)
-    Smooth scrolling & active navbar highlight
-    Fully responsive (desktop + mobile bottom navbar)
+    🖥️ Desktop Top Navigation Bar
 
-### 🔐 Admin Dashboard
+    📱 Mobile Bottom App-Style Navigation
 
-    Secure login & signup (OTP-based)
-    Forgot password with OTP
-    Edit Home, About, Skills, Projects
-    Upload profile image & resume
-    Add / delete skills (icon auto-handled)
-    Add / delete projects with image upload
-    View & delete contact messages
-    Mobile-friendly admin UI
+    🎯 Active Section Highlighting
+
+    🧭 Smooth Scroll Navigation
+
+    🧩 Project Showcase with Images
+
+    🏆 Achievements Section with Certificates
+
+    📄 Downloadable Resume
+
+    📬 Working Contact Form (EmailJS)
+
+    ⚡ Built with Vite for fast performance
 
 ## 🛠️ Tech Stack
 
 ### Frontend
 
     React (Vite)
-
     Tailwind CSS
-
-    React Router
-
-    Axios
-
+    JavaScript (ES6+)
     React Icons
 
-### Backend
+### Utilities & Services
 
-    Node.js
+    EmailJS (Contact Form)
+    GitHub Pages / Netlify (Deployment)
 
-    Express.js
-
-    MongoDB (Mongoose)
-
-    JWT Authentication
-
-    Multer (file uploads)
-
-    Nodemailer (OTP emails)
-
-## 📁 Project Structure
-
-### Frontend (/frontend)
-    src/
-    ├── assets/
-    ├── components/
-    │   ├── admin/
-    │   └── portfolio/
-    │   └── Navbar.jsx
-    ├── pages/
-    │   ├── Admin.jsx
-    │   ├── Login.jsx
-    │   ├── Signup.jsx
-    │   ├── ForgotPassword.jsx
-    │   └── Portfolio.jsx
-    ├── routes/
-    │   └── ProtectedRoute.jsx
-    ├── utils/
-    │   └── axiosConfig.js
-    ├── App.jsx
-    ├── main.jsx
-    └── index.css
-
-### Backend (/backend)
-
-    backend/
-    ├── middleware/
-    ├── models/
-    ├── routes/
-    ├── uploads/
-    ├── .env
-    ├── server.js
-    └── package.json
-
-## ⚙️ Environment Variables
-
-    Create a .env file inside /backend:
-
-        PORT=5000
-        MONGO_URI=your_mongodb_connection_string
-        JWT_SECRET=your_jwt_secret
-        EMAIL_USER=your_email@gmail.com
-        EMAIL_PASS=your_app_password
-
-## 🚀 Installation & Setup
-
-### 1️⃣ Clone the Repository
-    git clone https://github.com/your-username/mern-portfolio.git
-    cd mern-portfolio
-
-### 2️⃣ Backend Setup
-    cd backend
-    npm install
-    npm run dev
-
-    Server will start at:
-    http://localhost:5000
-
-### 3️⃣ Frontend Setup
-    cd frontend
-    npm install
-    npm run dev
-
-    Frontend will run at:
-    http://localhost:5173
-
-## 🔐 Authentication Flow
-
-    Admin Signup → Email OTP verification
-
-    Login → JWT stored in localStorage
-
-    Protected Admin routes
-
-    Forgot Password → OTP → Reset password
-
+## 📂 Project Structure
+    portfolio/
+    ├── public/
+    │   ├── Karan_Sharma.pdf
+    │   ├── _redirects
+    │   └── screenshots/
+    │       ├── home.png
+    │       ├── projects.png
+    │       ├── achievements.png
+    │       └── contact.png
+    ├── src/
+    │   ├── assets/
+    │   │   └── projects/
+    │   ├── components/
+    │   ├── hooks/
+    │   ├── pages/
+    │   ├── App.jsx
+    │   └── main.jsx
+    ├── vite.config.js
+    └── README.md
 
 ## 📸 Screenshots
 
-### Portfolio (Desktop)
+### 🏠 Home Section
 
-![Portfolio Desktop](frontend/src/assets/screenshots/portfolio-desktop.png)
+![Home Web](frontend/public/screenshots/home.png)
 
-### Portfolio (Mobile)
+### About Section 
 
-![Portfolio Mobile](frontend/src/assets/screenshots/portfolio-mobile.png)
+![About Web](frontend/public/screenshots/about.png)
 
-### Admin Dashboard
+### 💼 Projects Section
 
-![Admin Dashboard](frontend/src/assets/screenshots/admin-dashboard.png)
+![Project Web](frontend/public/screenshots/projects.png)
 
-## 🧑‍💻 Author
+### 🏆 Achievements Section
 
-    Karan Sharma
-    Full Stack Developer (MERN)
+![Achivement Web](frontend/public/screenshots/achivements.png)
 
-    GitHub: https://github.com/Karanx11
-    LinkedIn: www.linkedin.com/in/karan-s-290241298
+### 📬 Contact Section
 
-## ⭐ Support
+![About Web](frontend/public/screenshots/contact.png)
 
-    If you like this project:
-    ⭐ Star the repository
-    🐛 Report issues
-    🤝 Contributions welcome
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository
+    git clone https://github.com/Karanx11/portfolio.git
+    cd portfolio
+
+### 2️⃣ Install Dependencies
+    npm install
+
+### 3️⃣ Start Development Server
+    npm run dev
+
+
+### 📍 Runs at:
+    http://localhost:5173
+
+### 🚀 Build for Production
+    npm run build
+    Build output will be generated in the dist/ folder.
+
+## 🌍 Deployment
+
+    This portfolio is optimized for deployment on:
+    Netlify
+    Vercel
+    GitHub Pages
+
+    For Netlify (Vite):
+
+    Build Command: npm run build
+
+    Publish Directory: dist
+
+## 📬 Contact
+
+    📧 Email: karanx11.72898@gmail.com
+
+    💼 LinkedIn: linkedin.com/in/karan-s-290241298
+
+    🐙 GitHub: github.com/Karanx11
+
+
+## 📄 License
+
+    This project is licensed under the MIT License — feel free to use and customize it.
+
+    ⭐ If you like this portfolio, consider giving it a star on GitHub!
