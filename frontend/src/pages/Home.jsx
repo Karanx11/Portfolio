@@ -50,12 +50,13 @@ const Home = () => {
             </a>
 
             <a
-              href="/resume.pdf"
-              download
-              className="px-6 py-3 rounded-lg bg-white text-black font-semibold hover:bg-gray-200 transition"
-            >
-              Download Resume
+                href="/Karan_Sharma.pdf"
+                download
+                className="px-6 py-3 rounded-lg bg-white text-black font-semibold hover:bg-gray-200 transition"
+                >
+                Download Resume
             </a>
+
           </div>
         </div>
 

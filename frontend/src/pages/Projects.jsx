@@ -1,37 +1,86 @@
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 // PROJECT IMAGES
-import kaiImg from "../assets/projects/k-ai.png";
 import portfolioImg from "../assets/projects/portfolio.png";
-import iotImg from "../assets/projects/iot.png";
+import rentkaroImg from "../assets/projects/rentkaro.png";
+import studyPlannerImg from "../assets/projects/ai-study-planner.png";
+import beepyImg from "../assets/projects/beepy.png";
+import roboraceImg from "../assets/projects/roborace.png";
 
 const projects = [
   {
-    title: "AI Desktop Assistant (K-AI)",
+    title: "🌐 Portfolio",
     description:
-      "A Python-based AI desktop assistant with voice commands, speech recognition, and text-to-speech features.",
-    tech: ["Python", "Speech Recognition", "TTS"],
-    github: "https://github.com/",
-    live: "#",
-    image: kaiImg,
-  },
-  {
-    title: "Admin Portfolio Website",
-    description:
-      "A MERN portfolio with admin panel where all content can be updated dynamically with a modern dark UI.",
-    tech: ["React", "Node.js", "MongoDB", "Tailwind"],
-    github: "https://github.com/",
+      "A modern, responsive portfolio website with a glassmorphic dark UI. Includes desktop top navbar, mobile bottom app-style navigation, smooth scrolling, active section highlights, and admin-editable sections.",
+    tech: [
+      "React (Vite)",
+      "Tailwind CSS",
+      "JavaScript",
+      "Glassmorphism UI",
+    ],
+    github: "https://github.com/Karanx11",
     live: "#",
     image: portfolioImg,
   },
   {
-    title: "IoT Smart Automation",
+    title: "🚀 RentKaro — Rental Marketplace Platform",
     description:
-      "IoT project using Arduino & ESP32 for real-time sensor monitoring and device control.",
-    tech: ["Arduino", "ESP32", "IoT"],
-    github: "https://github.com/",
+      "A full-stack MERN rental marketplace where users can rent, sell, and manage products. Built as a modern alternative to OLX/Rentomojo with scalable backend architecture.",
+    tech: [
+      "React (Vite)",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "REST API",
+      "AI Chatbot",
+    ],
+    github: "https://github.com/Karanx11/RentKaro",
     live: "#",
-    image: iotImg,
+    image: rentkaroImg,
+  },
+  {
+    title: "📘 AI Study Planner",
+    description:
+      "An AI-powered study planning platform that extracts syllabus topics from PDFs/images, tracks progress, predicts exam readiness, and generates personalized study plans.",
+    tech: [
+      "React",
+      "Tailwind CSS",
+      "Chart.js",
+      "Node.js",
+      "AI APIs",
+    ],
+    github: "https://github.com/Karanx11/AI-Study-Planner",
+    live: "#",
+    image: studyPlannerImg,
+  },
+  {
+    title: "🤖 Beepy — Smart Assistant Robot",
+    description:
+      "An Arduino-based smart assistant robot with animated OLED eyes, Bluetooth voice commands, servo-based head movement, obstacle detection, and expressive behaviors.",
+    tech: [
+      "Arduino",
+      "C++",
+      "OLED (SH1106)",
+      "Servo Motors",
+      "Bluetooth",
+      "IR Sensors",
+    ],
+    github: "https://github.com/Karanx11",
+    image: beepyImg,
+  },
+  {
+    title: "🚗 RoboRace — ESP32 Bluetooth Car",
+    description:
+      "A Bluetooth-controlled racing car powered by ESP32 and driven using an Android app. Supports directional and optional voice-based commands.",
+    tech: [
+      "ESP32",
+      "C++",
+      "Bluetooth",
+      "Motor Driver",
+      "MIT App Inventor",
+    ],
+    github: "https://github.com/Karanx11",
+    image: roboraceImg,
   },
 ];
 
@@ -49,7 +98,8 @@ const Projects = () => {
             Projects
           </h2>
           <p className="mt-4 text-white/70">
-            Some of the projects I have built to apply my skills in real-world scenarios.
+            A showcase of full-stack, AI, and hardware projects demonstrating my
+            technical skills and problem-solving approach.
           </p>
         </div>
 
@@ -62,7 +112,7 @@ const Projects = () => {
               rounded-2xl overflow-hidden flex flex-col
               hover:border-[#FA7D09] transition"
             >
-              {/* PROJECT IMAGE */}
+              {/* IMAGE */}
               <div className="h-44 w-full overflow-hidden">
                 <img
                   src={project.image}
@@ -72,10 +122,10 @@ const Projects = () => {
                 />
               </div>
 
-              {/* CARD CONTENT */}
+              {/* CONTENT */}
               <div className="p-6 flex flex-col justify-between flex-1">
                 <div>
-                  <h3 className="text-xl font-semibold text-white mb-3">
+                  <h3 className="text-lg font-semibold text-white mb-3">
                     {project.title}
                   </h3>
 

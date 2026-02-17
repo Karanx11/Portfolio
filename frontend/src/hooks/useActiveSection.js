@@ -1,28 +1,47 @@
 import { useEffect, useState } from "react";
 
-const sections = ["home", "about", "skills", "projects", "achievements", "contact"];
+const sections = [
+  "home",
+  "about",
+  "skills",
+  "projects",
+  "achievements",
+  "contact",
+];
 
 const useActiveSection = () => {
   const [active, setActive] = useState("home");
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
+    const handleScroll = () => {
+      const viewportCenter = window.innerHeight / 2;
 
-    sections.forEach((id) => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
-    });
+      let closestSection = null;
+      let closestDistance = Infinity;
 
-    return () => observer.disconnect();
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        const rect = el.getBoundingClientRect();
+        const sectionCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(viewportCenter - sectionCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestSection = id;
+        }
+      });
+
+      if (closestSection) {
+        setActive(closestSection);
+      }
+    };
+
+    handleScroll(); // initial run
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return active;
