@@ -38,6 +38,7 @@ const projects = [
       "An AI-powered study planning platform that extracts syllabus topics, tracks progress, predicts exam readiness, and generates personalized study plans.",
     tech: ["React", "Tailwind CSS", "Node.js", "AI APIs"],
     github: "https://github.com/Karanx11/AI-Study-Planner",
+    live:"https://ai-study-planner-1-1ixn.onrender.com/",
     image: studyPlannerImg,
   },
   {
