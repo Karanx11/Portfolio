@@ -1,4 +1,22 @@
-import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaDatabase } from "react-icons/fa";
+import {
+  FaNodeJs,
+  FaDatabase,
+  FaServer,
+  FaReact,
+  FaJs,
+  FaHtml5,
+  FaCss3Alt,
+  FaGitAlt,
+} from "react-icons/fa";
+
+import {
+  SiExpress,
+  SiTailwindcss,
+  SiGithub,
+  SiArduino,
+  SiPostman,
+  SiJsonwebtokens,
+} from "react-icons/si";
 
 const skills = [
   {
@@ -8,24 +26,27 @@ const skills = [
       { name: "JavaScript", icon: <FaJs /> },
       { name: "HTML5", icon: <FaHtml5 /> },
       { name: "CSS3", icon: <FaCss3Alt /> },
-      { name: "Tailwind CSS" },
+      { name: "Tailwind CSS", icon: <SiTailwindcss /> },
     ],
   },
   {
     category: "Backend",
     items: [
       { name: "Node.js", icon: <FaNodeJs /> },
-      { name: "Express.js" },
+      { name: "Express.js", icon: <SiExpress /> },
       { name: "MongoDB", icon: <FaDatabase /> },
-      { name: "REST APIs" },
+      { name: "REST APIs", icon: <FaServer /> },
+      { name: "JWT Auth", icon: <SiJsonwebtokens /> },
+      { name: "Postman", icon: <SiPostman /> },
     ],
   },
   {
     category: "Other",
     items: [
-      { name: "Git & GitHub" },
-      { name: "Arduino / ESP32" },
-      { name: "IoT Systems" },
+      { name: "Git", icon: <FaGitAlt /> },
+      { name: "GitHub", icon: <SiGithub /> },
+      { name: "Arduino / ESP32", icon: <SiArduino /> },
+      { name: "IoT Systems", icon: <FaServer /> },
     ],
   },
 ];
@@ -33,12 +54,10 @@ const skills = [
 const Skills = () => {
   return (
     <section
-  id="skills"
-  className="min-h-screen flex items-center px-6 md:px-20 py-20 md:py-0"
->
-
+      id="skills"
+      className="min-h-screen flex items-center px-6 md:px-20 py-20 md:py-0"
+    >
       <div className="max-w-7xl mx-auto w-full">
-
         {/* SECTION TITLE */}
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-[#FA7D09]">
@@ -67,8 +86,8 @@ const Skills = () => {
                     key={i}
                     className="flex items-center gap-4 text-white/80"
                   >
-                    <span className="text-[#FA7D09] text-lg">
-                      {skill.icon || "•"}
+                    <span className="text-[#FA7D09] text-xl">
+                      {skill.icon}
                     </span>
                     <span>{skill.name}</span>
                   </li>

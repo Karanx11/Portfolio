@@ -25,8 +25,7 @@ const About = () => {
 
           <p className="mt-4 text-white/70 leading-relaxed">
             Along with web development, I actively work with Arduino, ESP32,
-            and IoT-based projects. I have also explored AI & Machine Learning
-            fundamentals and enjoy applying technology to solve real-world
+            and IoT-based projects. I enjoy applying technology to solve real-world
             problems.
           </p>
 
@@ -45,7 +44,7 @@ const About = () => {
 
             <div>
               <p className="font-semibold text-white">Tech Stack</p>
-              <p>React, MERN, Tailwind</p>
+              <p>ReactNative, MERN, Arduino</p>
             </div>
 
             <div>

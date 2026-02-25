@@ -9,7 +9,7 @@ import roboraceImg from "../assets/projects/roborace.png";
 
 const projects = [
   {
-    title: "🌐 Portfolio",
+    title: "Portfolio",
     description:
       "A modern, responsive portfolio website with a glassmorphic dark UI. Includes desktop top navbar, mobile bottom app-style navigation, smooth scrolling, and active section highlighting.",
     tech: ["React (Vite)", "Tailwind CSS", "JavaScript", "Glassmorphism UI"],
@@ -18,7 +18,7 @@ const projects = [
     image: portfolioImg,
   },
   {
-    title: "🚀 RentKaro — Rental Marketplace Platform",
+    title: "RentKaro — Rental Marketplace Platform",
     description:
       "A full-stack MERN rental marketplace where users can rent, sell, and manage products. Built as a modern alternative to OLX/Rentomojo.",
     tech: [
@@ -33,7 +33,7 @@ const projects = [
     image: rentkaroImg,
   },
   {
-    title: "📘 AI Study Planner",
+    title: "AI Study Planner",
     description:
       "An AI-powered study planning platform that extracts syllabus topics, tracks progress, predicts exam readiness, and generates personalized study plans.",
     tech: ["React", "Tailwind CSS", "Node.js", "AI APIs"],
@@ -57,7 +57,7 @@ const projects = [
     image: beepyImg,
   },
   {
-    title: "🚗 RoboRace — ESP32 Bluetooth Car",
+    title: "RoboRace — ESP32 Bluetooth Car",
     description:
       "A Bluetooth-controlled racing car powered by ESP32 and driven via an Android app with optional voice commands.",
     tech: [
