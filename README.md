@@ -38,7 +38,7 @@
 ### Utilities & Services
 
     EmailJS (Contact Form)
-    GitHub Pages / Netlify (Deployment)
+    Netlify (Deployment)
 
 ## 📂 Project Structure
     portfolio/
