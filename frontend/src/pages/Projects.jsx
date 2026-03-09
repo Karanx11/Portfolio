@@ -30,6 +30,7 @@ const projects = [
       "AI Chatbot",
     ],
     github: "https://github.com/Karanx11/RentKaro",
+    live:"https://rentkaro-frontend.onrender.com",
     image: rentkaroImg,
   },
   {
