@@ -6,6 +6,7 @@ import rentkaroImg from "../assets/projects/rentkaro.png";
 import studyPlannerImg from "../assets/projects/ai-study-planner.png";
 import beepyImg from "../assets/projects/beepy.png";
 import roboraceImg from "../assets/projects/roborace.png";
+import expenseImg from "../assets/projects/expense.png";
 
 const projects = [
   {
@@ -33,6 +34,22 @@ const projects = [
     live:"https://rentkaro-frontend.onrender.com",
     image: rentkaroImg,
   },
+  {
+  title: "Expense Tracker App",
+  description:
+    "A Flutter-based smart expense tracking application with SMS transaction detection, real-time updates, analytics dashboard, and monthly budget alerts. This website allows users to download the Android APK directly.",
+  tech: [
+    "Flutter",
+    "Node.js",
+    "MongoDB",
+    "Socket.IO",
+    "React",
+    "Tailwind CSS"
+  ],
+  github: "https://github.com/Karanx11/Expense-Tracker",
+  live: "https://expense-tracker-website-9iy2.onrender.com/",
+  image: expenseImg,
+},
   {
     title: "AI Study Planner",
     description:
