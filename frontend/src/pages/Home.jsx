@@ -21,8 +21,7 @@ const Home = () => {
           </h1>
 
           <p className="mt-4 text-lg md:text-xl text-white/80">
-            Full Stack Developer | React & MERN | Arduino • ESP32 | AI & ML
-            Student | IoT Enthusiast
+            Full Stack Developer | React & MERN | Flutter Developer | Arduino • ESP32 | IoT Enthusiast
           </p>
 
           <p className="mt-6 text-white/60 max-w-xl">

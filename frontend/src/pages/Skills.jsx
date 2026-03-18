@@ -16,6 +16,8 @@ import {
   SiArduino,
   SiPostman,
   SiJsonwebtokens,
+  SiFlutter,
+  SiFirebase,
 } from "react-icons/si";
 
 const skills = [
@@ -37,7 +39,15 @@ const skills = [
       { name: "MongoDB", icon: <FaDatabase /> },
       { name: "REST APIs", icon: <FaServer /> },
       { name: "JWT Auth", icon: <SiJsonwebtokens /> },
+      { name: "Firebase", icon: <SiFirebase /> }, // ✅ added
       { name: "Postman", icon: <SiPostman /> },
+    ],
+  },
+  {
+    category: "Mobile",
+    items: [
+      { name: "Flutter", icon: <SiFlutter /> }, // ✅ added
+      { name: "Firebase", icon: <SiFirebase /> },
     ],
   },
   {
@@ -69,7 +79,7 @@ const Skills = () => {
         </div>
 
         {/* SKILLS GRID */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skills.map((group, index) => (
             <div
               key={index}
