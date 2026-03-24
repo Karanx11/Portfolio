@@ -25,11 +25,8 @@ const Home = () => {
           </p>
 
           <p className="mt-6 text-white/60 max-w-xl">
-            Enthusiastic full-stack developer with hands-on experience in React,
-            JavaScript, HTML, CSS, and backend integration. I enjoy building
-            user-friendly interfaces and scalable web applications through
-            real-world projects.
-          </p>
+  Full Stack Developer specializing in React & MERN, Flutter Developer, and IoT Enthusiast with hands-on experience in Arduino and ESP32. I build scalable web and mobile applications, focusing on user-friendly interfaces and real-world problem solving.
+</p>
 
           {/* BUTTONS */}
 <div className="mt-8 flex flex-wrap gap-4 justify-center md:justify-start">
