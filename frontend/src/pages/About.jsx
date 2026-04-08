@@ -1,4 +1,4 @@
-const About = () => {
+ const About = () => {
   return (
     <section
       id="about"
@@ -16,40 +16,40 @@ const About = () => {
             I am <span className="text-white font-semibold">Karan Sharma</span>,
             a passionate{" "}
             <span className="text-[#FA7D09] font-semibold">
-              Full Stack Developer
+              Full Stack & Flutter Developer
             </span>{" "}
-            with strong hands-on experience in React, MERN stack, and modern
-            web technologies. I enjoy transforming ideas into scalable,
-            user-friendly web applications.
+            with strong hands-on experience in React, MERN stack, Flutter,
+            and modern technologies. I enjoy transforming ideas into scalable,
+            user-friendly web and mobile applications.
           </p>
 
           <p className="mt-4 text-white/70 leading-relaxed">
-            Along with web development, I actively work with Arduino, ESP32,
-            and IoT-based projects. I enjoy applying technology to solve real-world
-            problems.
+            Along with web development, I actively build cross-platform mobile
+            apps using Flutter and Firebase. I also work with Arduino, ESP32,
+            and IoT-based projects to solve real-world problems.
           </p>
 
           <p className="mt-4 text-white/70 leading-relaxed">
             I believe in continuous learning, clean code practices, and
-            building projects that create real impact. My goal is to grow as
-            a software engineer while contributing to innovative teams.
+            building impactful projects. My goal is to grow as a software
+            engineer while contributing to innovative teams.
           </p>
 
           {/* INFO ROW */}
           <div className="mt-8 grid grid-cols-2 gap-6 text-sm text-white/80">
             <div>
               <p className="font-semibold text-white">Role</p>
-              <p>Full Stack Developer</p>
+              <p>Full Stack & Flutter Developer</p>
             </div>
 
             <div>
               <p className="font-semibold text-white">Tech Stack</p>
-              <p>React Native, MERN, Arduino</p>
+              <p>React, MERN, Flutter, Firebase</p>
             </div>
 
             <div>
               <p className="font-semibold text-white">Interests</p>
-              <p>IoT</p>
+              <p>IoT & Mobile Apps</p>
             </div>
 
             <div>
@@ -101,8 +101,9 @@ const About = () => {
             </h3>
 
             <ul className="space-y-3 text-white/70 text-sm">
-              <li>✔ React & MERN stack developer</li>
-              <li>✔ Experience with REST APIs & backend integration</li>
+              <li>✔ React, MERN & Flutter developer</li>
+              <li>✔ Experience with Firebase & REST APIs</li>
+              <li>✔ Cross-platform app development (Android/iOS)</li>
               <li>✔ Hands-on IoT projects (Arduino, ESP32)</li>
               <li>✔ Strong problem-solving mindset</li>
               <li>✔ Passionate about learning new technologies</li>
