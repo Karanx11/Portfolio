@@ -22,12 +22,12 @@ const Contact = () => {
       .then(
         () => {
           setLoading(false);
-          setSuccess("Message sent successfully 🚀");
+          setSuccess("Message sent successfully :)");
           formRef.current.reset();
         },
         () => {
           setLoading(false);
-          setSuccess("Something went wrong ❌ Try again");
+          setSuccess("Something went wrong..... Try again :(");
         }
       );
   };
