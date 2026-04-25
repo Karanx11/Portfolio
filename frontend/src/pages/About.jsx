@@ -1,4 +1,4 @@
- const About = () => {
+const About = () => {
   return (
     <section
       id="about"
@@ -16,11 +16,14 @@
             I am <span className="text-white font-semibold">Karan Sharma</span>,
             a passionate{" "}
             <span className="text-[#FA7D09] font-semibold">
-              Full Stack & Flutter Developer
+              Full Stack, Flutter & Golang Developer
             </span>{" "}
             with strong hands-on experience in React, MERN stack, Flutter,
-            and modern technologies. I enjoy transforming ideas into scalable,
-            user-friendly web and mobile applications.
+            and modern technologies. I also have{" "}
+            <span className="text-white font-semibold">
+              basic knowledge of Golang
+            </span>{" "}
+            and backend development.
           </p>
 
           <p className="mt-4 text-white/70 leading-relaxed">
@@ -39,12 +42,12 @@
           <div className="mt-8 grid grid-cols-2 gap-6 text-sm text-white/80">
             <div>
               <p className="font-semibold text-white">Role</p>
-              <p>Full Stack & Flutter Developer</p>
+              <p>Full Stack, Flutter & Golang (Basic)</p>
             </div>
 
             <div>
               <p className="font-semibold text-white">Tech Stack</p>
-              <p>React, MERN, Flutter, Firebase</p>
+              <p>React, MERN, Flutter, Firebase, Golang</p>
             </div>
 
             <div>
@@ -101,7 +104,7 @@
             </h3>
 
             <ul className="space-y-3 text-white/70 text-sm">
-              <li>✔ React, MERN & Flutter developer</li>
+              <li>✔ React, MERN, Flutter & Golang (Basic)</li>
               <li>✔ Experience with Firebase & REST APIs</li>
               <li>✔ Cross-platform app development (Android/iOS)</li>
               <li>✔ Hands-on IoT projects (Arduino, ESP32)</li>

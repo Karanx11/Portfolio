@@ -18,6 +18,7 @@ import {
   SiJsonwebtokens,
   SiFlutter,
   SiFirebase,
+  SiGo, // ✅ Golang icon added
 } from "react-icons/si";
 
 const skills = [
@@ -39,14 +40,15 @@ const skills = [
       { name: "MongoDB", icon: <FaDatabase /> },
       { name: "REST APIs", icon: <FaServer /> },
       { name: "JWT Auth", icon: <SiJsonwebtokens /> },
-      { name: "Firebase", icon: <SiFirebase /> }, // ✅ added
+      { name: "Firebase", icon: <SiFirebase /> },
+      { name: "Golang (Basic)", icon: <SiGo /> }, // ✅ added properly
       { name: "Postman", icon: <SiPostman /> },
     ],
   },
   {
     category: "Mobile",
     items: [
-      { name: "Flutter", icon: <SiFlutter /> }, // ✅ added
+      { name: "Flutter", icon: <SiFlutter /> },
       { name: "Firebase", icon: <SiFirebase /> },
     ],
   },
@@ -68,6 +70,7 @@ const Skills = () => {
       className="min-h-screen flex items-center px-6 md:px-20 py-20 md:py-0"
     >
       <div className="max-w-7xl mx-auto w-full">
+        
         {/* SECTION TITLE */}
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-[#FA7D09]">
@@ -106,6 +109,7 @@ const Skills = () => {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
