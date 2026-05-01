@@ -7,6 +7,7 @@ import studyPlannerImg from "../assets/projects/ai-study-planner.png";
 import beepyImg from "../assets/projects/beepy.png";
 import roboraceImg from "../assets/projects/roborace.png";
 import expenseImg from "../assets/projects/expense.png";
+import hostelPassImg from "../assets/projects/hostelpass.png";
 
 const projects = [
   {
@@ -18,6 +19,7 @@ const projects = [
     live: "https://karan-portfolio-x11.netlify.app/",
     image: portfolioImg,
   },
+
   {
     title: "RentKaro — Rental Marketplace Platform",
     description:
@@ -31,34 +33,54 @@ const projects = [
       "AI Chatbot",
     ],
     github: "https://github.com/Karanx11/RentKaro",
-    live:"https://rentkaro-frontend.onrender.com",
+    live: "https://rentkaro-frontend.onrender.com",
     image: rentkaroImg,
   },
+
   {
-  title: "Expense Tracker App",
-  description:
-    "A Flutter-based smart expense tracking application with SMS transaction detection, real-time updates, analytics dashboard, and monthly budget alerts. This website allows users to download the Android APK directly.",
-  tech: [
-    "Flutter",
-    "Node.js",
-    "MongoDB",
-    "Socket.IO",
-    "React",
-    "Tailwind CSS"
-  ],
-  github: "https://github.com/Karanx11/Expense-Tracker",
-  live: "https://expense-tracker-website-9iy2.onrender.com/",
-  image: expenseImg,
-},
+    title: "Hostel Pass Management System",
+    description:
+      "A Flutter + Supabase role-based hostel gate pass system where students request passes, wardens approve/reject requests, and guards verify passes using QR scanning. Includes dedicated dashboards for all roles.",
+    tech: [
+      "Flutter",
+      "Supabase",
+      "PostgreSQL",
+      "QR Scanner",
+      "SharedPreferences",
+      "Role Based Auth",
+    ],
+    github: "https://github.com/Karanx11/Hostel-Pass",
+    live: "https://hostel-pass-app.onrender.com/",
+    image: hostelPassImg,
+  },
+
+  {
+    title: "Expense Tracker App",
+    description:
+      "A Flutter-based smart expense tracking application with SMS transaction detection, real-time updates, analytics dashboard, and monthly budget alerts. This website allows users to download the Android APK directly.",
+    tech: [
+      "Flutter",
+      "Node.js",
+      "MongoDB",
+      "Socket.IO",
+      "React",
+      "Tailwind CSS",
+    ],
+    github: "https://github.com/Karanx11/Expense-Tracker",
+    live: "https://expense-tracker-website-9iy2.onrender.com/",
+    image: expenseImg,
+  },
+
   {
     title: "AI Study Planner",
     description:
       "An AI-powered study planning platform that extracts syllabus topics, tracks progress, predicts exam readiness, and generates personalized study plans.",
     tech: ["React", "Tailwind CSS", "Node.js", "AI APIs"],
     github: "https://github.com/Karanx11/AI-Study-Planner",
-    live:"https://ai-study-planner-1-1ixn.onrender.com/",
+    live: "https://ai-study-planner-1-1ixn.onrender.com/",
     image: studyPlannerImg,
   },
+
   {
     title: "🤖 Beepy — Smart Assistant Robot",
     description:
@@ -74,6 +96,7 @@ const projects = [
     github: "https://github.com/Karanx11",
     image: beepyImg,
   },
+
   {
     title: "RoboRace — ESP32 Bluetooth Car",
     description:
@@ -100,6 +123,7 @@ const Projects = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-[#FA7D09]">
             Projects
           </h2>
+
           <p className="mt-4 text-white/70">
             A showcase of full-stack, AI, and hardware projects demonstrating my
             technical skills and problem-solving approach.
@@ -162,7 +186,6 @@ const Projects = () => {
                     <FaGithub /> GitHub
                   </a>
 
-                  {/* ✅ Render Live button ONLY if link exists */}
                   {project.live && (
                     <a
                       href={project.live}
