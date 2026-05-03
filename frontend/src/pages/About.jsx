@@ -16,7 +16,7 @@ const About = () => {
             I am <span className="text-white font-semibold">Karan Sharma</span>,
             a passionate{" "}
             <span className="text-[#FA7D09] font-semibold">
-              Full Stack, Flutter & Golang Developer
+              Full Stack & Flutter Developer
             </span>{" "}
             with strong hands-on experience in React, MERN stack, Flutter,
             and modern technologies. I also have{" "}
@@ -28,7 +28,7 @@ const About = () => {
 
           <p className="mt-4 text-white/70 leading-relaxed">
             Along with web development, I actively build cross-platform mobile
-            apps using Flutter and Firebase. I also work with Arduino, ESP32,
+            apps using Flutter and Firebase and Supabase. I also work with Arduino, ESP32,
             and IoT-based projects to solve real-world problems.
           </p>
 
