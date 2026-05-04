@@ -38,7 +38,7 @@
 ### Utilities & Services
 
     EmailJS (Contact Form)
-    Netlify (Deployment)
+    Vercel (Deployment)
 
 ## 📂 Project Structure
     portfolio/
