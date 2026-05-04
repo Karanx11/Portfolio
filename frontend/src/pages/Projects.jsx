@@ -23,7 +23,7 @@ const projects = [
   {
     title: "RentKaro — Rental Marketplace Platform",
     description:
-      "A full-stack MERN rental marketplace where users can rent, sell, and manage products. Built as a modern alternative to OLX/Rentomojo.",
+      "A full-stack MERN rental marketplace where users can rent, sell, and manage products. Built as a modern alternative to OLX.",
     tech: [
       "React (Vite)",
       "Node.js",
@@ -31,6 +31,7 @@ const projects = [
       "MongoDB",
       "REST API",
       "AI Chatbot",
+      "Google Signin"
     ],
     github: "https://github.com/Karanx11/RentKaro",
     live: "https://rentkaro-frontend.onrender.com",
