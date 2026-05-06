@@ -28,7 +28,7 @@ const About = () => {
 
           <p className="mt-4 text-white/70 leading-relaxed">
             Along with web development, I actively build cross-platform mobile
-            apps using Flutter and Firebase and Supabase. I also work with Arduino, ESP32,
+            apps using Flutter, Firebase and Supabase. I also work with Arduino, ESP32,
             and IoT-based projects to solve real-world problems.
           </p>
 
@@ -42,7 +42,7 @@ const About = () => {
           <div className="mt-8 grid grid-cols-2 gap-6 text-sm text-white/80">
             <div>
               <p className="font-semibold text-white">Role</p>
-              <p>Full Stack, Flutter & Golang (Basic)</p>
+              <p>Full Stack & Flutter </p>
             </div>
 
             <div>
@@ -106,7 +106,7 @@ const About = () => {
             <ul className="space-y-3 text-white/70 text-sm">
               <li>✔ React, MERN, Flutter & Golang (Basic)</li>
               <li>✔ Experience with Firebase & REST APIs</li>
-              <li>✔ Cross-platform app development (Android/iOS)</li>
+              <li>✔ Cross-platform app development</li>
               <li>✔ Hands-on IoT projects (Arduino, ESP32)</li>
               <li>✔ Strong problem-solving mindset</li>
               <li>✔ Passionate about learning new technologies</li>
