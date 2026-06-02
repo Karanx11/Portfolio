@@ -1,8 +1,30 @@
 # 📌 Karan Sharma — Developer Portfolio
 
     🚀 A modern, responsive developer portfolio website showcasing my full-stack, AI, and hardware projects, built with a clean glassmorphic dark UI and smooth user experience across devices.
+     Designed to reflect my skills, projects, and achievements in a professional and recruiter-friendly way.
+     
+## 📸 Screenshots
 
-    Designed to reflect my skills, projects, and achievements in a professional and recruiter-friendly way.
+### 🏠 Home Section
+
+![Home Web](frontend/public/screenshots/home.png)
+
+### About Section 
+
+![About Web](frontend/public/screenshots/about.png)
+
+### 💼 Projects Section
+
+![Project Web](frontend/public/screenshots/projects.png)
+
+### 🏆 Achievements Section
+
+![Achivement Web](frontend/public/screenshots/achivements.png)
+
+### 📬 Contact Section
+
+![About Web](frontend/public/screenshots/contact.png)
+
 
 ## ✨ Features
 
@@ -60,28 +82,6 @@
     │   └── main.jsx
     ├── vite.config.js
     └── README.md
-
-## 📸 Screenshots
-
-### 🏠 Home Section
-
-![Home Web](frontend/public/screenshots/home.png)
-
-### About Section 
-
-![About Web](frontend/public/screenshots/about.png)
-
-### 💼 Projects Section
-
-![Project Web](frontend/public/screenshots/projects.png)
-
-### 🏆 Achievements Section
-
-![Achivement Web](frontend/public/screenshots/achivements.png)
-
-### 📬 Contact Section
-
-![About Web](frontend/public/screenshots/contact.png)
 
 ## ⚙️ Installation & Setup
 
