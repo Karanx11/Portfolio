@@ -18,7 +18,8 @@ import {
   SiJsonwebtokens,
   SiFlutter,
   SiFirebase,
-  SiGo, // ✅ Golang icon added
+  SiGo,
+  SiSupabase,
 } from "react-icons/si";
 
 const skills = [
@@ -41,7 +42,8 @@ const skills = [
       { name: "REST APIs", icon: <FaServer /> },
       { name: "JWT Auth", icon: <SiJsonwebtokens /> },
       { name: "Firebase", icon: <SiFirebase /> },
-      { name: "Golang (Basic)", icon: <SiGo /> }, // ✅ added properly
+      { name: "Supabase", icon: <SiSupabase /> },
+      { name: "Golang (Basic)", icon: <SiGo /> },
       { name: "Postman", icon: <SiPostman /> },
     ],
   },
@@ -50,6 +52,7 @@ const skills = [
     items: [
       { name: "Flutter", icon: <SiFlutter /> },
       { name: "Firebase", icon: <SiFirebase /> },
+      { name: "Supabase", icon: <SiSupabase /> },
     ],
   },
   {
@@ -70,7 +73,6 @@ const Skills = () => {
       className="min-h-screen flex items-center px-6 md:px-20 py-20 md:py-0"
     >
       <div className="max-w-7xl mx-auto w-full">
-        
         {/* SECTION TITLE */}
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold text-[#FA7D09]">
@@ -86,8 +88,17 @@ const Skills = () => {
           {skills.map((group, index) => (
             <div
               key={index}
-              className="bg-white/5 backdrop-blur-xl border border-white/10
-              rounded-2xl p-6 hover:border-[#FA7D09] transition"
+              className="
+                bg-white/5
+                backdrop-blur-xl
+                border border-white/10
+                rounded-2xl
+                p-6
+                hover:border-[#FA7D09]
+                hover:-translate-y-2
+                transition-all
+                duration-300
+              "
             >
               <h3 className="text-xl font-semibold text-white mb-6">
                 {group.category}
@@ -97,7 +108,7 @@ const Skills = () => {
                 {group.items.map((skill, i) => (
                   <li
                     key={i}
-                    className="flex items-center gap-4 text-white/80"
+                    className="flex items-center gap-4 text-white/80 hover:text-white transition"
                   >
                     <span className="text-[#FA7D09] text-xl">
                       {skill.icon}
@@ -109,7 +120,6 @@ const Skills = () => {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
