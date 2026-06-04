@@ -23,7 +23,7 @@ const projects = [
   {
     title: "RentKaro — Rental Marketplace Platform",
     description:
-      "A full-stack MERN rental marketplace where users can rent, sell, and manage products. Built as a modern alternative to OLX.",
+      "A full-stack MERN rental marketplace where users can rent, sell, buy and manage products. Built as a modern alternative to OLX.",
     tech: [
       "React (Vite)",
       "Node.js",
