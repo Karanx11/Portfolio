@@ -27,10 +27,7 @@ const Home = () => {
           </p>
 
           <p className="mt-6 text-white/60 max-w-xl mx-auto md:mx-0">
-            Full Stack Developer specializing in React & MERN, Flutter
-            Developer, and IoT Enthusiast with hands-on experience in Arduino
-            and ESP32. I build scalable web and mobile applications, focusing
-            on user-friendly interfaces and real-world problem solving.
+            Full Stack and Flutter Developer experienced in building scalable, user-centric web and mobile applications using React, Node.js, Express.js, MongoDB, and Flutter. Passionate about creating efficient, real-world solutions and continuously exploring emerging technologies, including IoT and embedded systems.
           </p>
 
           {/* BUTTONS */}
