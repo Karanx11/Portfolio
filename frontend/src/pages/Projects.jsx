@@ -94,7 +94,7 @@ const projects = [
       "Bluetooth",
       "IR Sensors",
     ],
-    github: "https://github.com/Karanx11",
+    github: "https://github.com/Karanx11/Beepy-Smart-Assistant-Bot",
     image: beepyImg,
   },
 
@@ -109,7 +109,7 @@ const projects = [
       "Motor Driver",
       "MIT App Inventor",
     ],
-    github: "https://github.com/Karanx11",
+    github: "https://github.com/Karanx11/Roborace-Car",
     image: roboraceImg,
   },
 ];
