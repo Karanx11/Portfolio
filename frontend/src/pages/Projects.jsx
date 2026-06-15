@@ -15,7 +15,7 @@ const projects = [
     description:
       "A modern, responsive portfolio website with a glassmorphic dark UI. Includes desktop top navbar, mobile bottom app-style navigation, smooth scrolling, and active section highlighting.",
     tech: ["React (Vite)", "Tailwind CSS", "JavaScript", "Glassmorphism UI"],
-    github: "https://github.com/Karanx11",
+    github: "https://github.com/Karanx11/Portfolio",
     live: "https://karan-portfolio-x11.netlify.app/",
     image: portfolioImg,
   },
