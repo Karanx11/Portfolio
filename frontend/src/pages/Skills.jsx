@@ -43,7 +43,6 @@ const skills = [
       { name: "JWT Auth", icon: <SiJsonwebtokens /> },
       { name: "Firebase", icon: <SiFirebase /> },
       { name: "Supabase", icon: <SiSupabase /> },
-      { name: "Golang (Basic)", icon: <SiGo /> },
       { name: "Postman", icon: <SiPostman /> },
     ],
   },

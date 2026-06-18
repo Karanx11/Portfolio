@@ -18,12 +18,7 @@ const About = () => {
             <span className="text-[#FA7D09] font-semibold">
               Full Stack & Flutter Developer
             </span>{" "}
-            with strong hands-on experience in React, MERN stack, Flutter,
-            and modern technologies. I also have{" "}
-            <span className="text-white font-semibold">
-              basic knowledge of Golang
-            </span>{" "}
-            and backend development.
+            with strong hands-on experience in React, MERN stack, Flutter, modern technologies and backend development.
           </p>
 
           <p className="mt-4 text-white/70 leading-relaxed">
@@ -47,7 +42,7 @@ const About = () => {
 
             <div>
               <p className="font-semibold text-white">Tech Stack</p>
-              <p>React, MERN, Flutter, Firebase, Golang</p>
+              <p>React, MERN, Flutter, Firebase</p>
             </div>
 
             <div>
@@ -104,7 +99,7 @@ const About = () => {
             </h3>
 
             <ul className="space-y-3 text-white/70 text-sm">
-              <li>✔ React, MERN, Flutter & Golang (Basic)</li>
+              <li>✔ React, MERN, Flutter </li>
               <li>✔ Experience with Firebase & REST APIs</li>
               <li>✔ Cross-platform app development</li>
               <li>✔ Hands-on IoT projects (Arduino, ESP32)</li>
