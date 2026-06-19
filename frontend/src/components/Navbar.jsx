@@ -16,7 +16,16 @@ const Navbar = () => {
       bg-white/10 backdrop-blur-xl border border-white/20
       justify-between items-center z-50">
 
-      <h1 className="text-xl font-bold text-[#FA7D09]">Portfolio</h1>
+      <h1
+  onClick={() => {
+    document.getElementById("home")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }}
+  className="text-xl font-bold text-[#FA7D09] cursor-pointer hover:scale-105 transition"
+>
+  Portfolio
+</h1>
 
       <ul className="flex gap-6">
         {links.map((link) => (
