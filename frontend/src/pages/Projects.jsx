@@ -11,15 +11,6 @@ import hostelPassImg from "../assets/projects/hostelpass.png";
 import layer7Img from "../assets/projects/Layer_7.png";
 
 const projects = [
-  {
-    title: "Portfolio",
-    description:
-      "A modern, responsive portfolio website with a glassmorphic dark UI. Includes desktop top navbar, mobile bottom app-style navigation, smooth scrolling, and active section highlighting.",
-    tech: ["React (Vite)", "Tailwind CSS", "JavaScript", "Glassmorphism UI"],
-    github: "https://github.com/Karanx11/Portfolio",
-    live: "https://karan-portfolio-x11.netlify.app/",
-    image: portfolioImg,
-  },
 {
   title: "Layer 7 Load Balancer",
   description:
@@ -53,7 +44,15 @@ const projects = [
     live: "https://rentkaro-frontend.onrender.com",
     image: rentkaroImg,
   },
-
+{
+    title: "Portfolio",
+    description:
+      "A modern, responsive portfolio website with a glassmorphic dark UI. Includes desktop top navbar, mobile bottom app-style navigation, smooth scrolling, and active section highlighting.",
+    tech: ["React (Vite)", "Tailwind CSS", "JavaScript", "Glassmorphism UI"],
+    github: "https://github.com/Karanx11/Portfolio",
+    live: "https://karan-portfolio-x11.netlify.app/",
+    image: portfolioImg,
+  },
   {
     title: "Hostel Pass Management System",
     description:
