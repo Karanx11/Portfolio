@@ -57,7 +57,7 @@ const Home = () => {
               className="px-6 py-3 rounded-lg bg-orange-500 text-black font-semibold hover:bg-orange-600 transition duration-300 hover:scale-105 flex items-center gap-2"
             >
               <HiOutlineBriefcase size={20} />
-              Hire Me
+              Contact Me
             </a>
 
             <a
