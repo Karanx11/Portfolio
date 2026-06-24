@@ -11,22 +11,7 @@ import hostelPassImg from "../assets/projects/hostelpass.png";
 import layer7Img from "../assets/projects/Layer_7.png";
 
 const projects = [
-{
-  title: "Layer 7 Load Balancer",
-  description:
-    "A custom Layer 7 HTTP Load Balancer built in Java that distributes traffic across multiple backend servers using Round Robin load balancing. Features health monitoring, path-based routing, request forwarding, failover handling, and real-time metrics.",
-  tech: [
-    "Java",
-    "HTTP",
-    "Load Balancing",
-    "Round Robin",
-    "Health Checks",
-    "System Design",
-    "Backend Development",
-  ],
-  github: "https://github.com/Karanx11/layer7-load-balancer-java",
-  image: layer7Img,
-},
+
   {
     title: "RentKaro — Rental Marketplace Platform",
     description:
