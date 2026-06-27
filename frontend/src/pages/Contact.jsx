@@ -61,7 +61,7 @@ const Contact = () => {
   href="mailto:karanx11.72898@gmail.com"
   className="flex items-center gap-4 text-white/80 hover:text-[#FA7D09] transition"
 >
-  <FaEnvelope /> karanx11.72898@gmail.com
+  <FaEnvelope /> Email 
 </a>
               </div>
 
