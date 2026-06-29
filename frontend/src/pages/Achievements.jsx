@@ -21,7 +21,7 @@ const achievements = [
   },
   {
     title: "Innovate X (Idea Pitching) – 2nd Prize",
-    description: "Awarded 2nd prize for presenting an innovative technology-based idea in a college event.",
+    description: "Awarded 2nd prize for presenting an innovative technology-based idea.",
     certificate: "/certificates/innovate-x.png",
     icon: <FaTrophy />,
   },
