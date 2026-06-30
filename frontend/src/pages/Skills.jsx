@@ -55,7 +55,7 @@ const skills = [
     ],
   },
   {
-    category: "Other",
+    category: "Tools & Others",
     items: [
       { name: "Git", icon: <FaGitAlt /> },
       { name: "GitHub", icon: <SiGithub /> },
