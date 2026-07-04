@@ -29,6 +29,21 @@ const projects = [
     live: "https://rentkaro-frontend.onrender.com",
     image: rentkaroImg,
   },
+  {
+  title: "Layer 7 Load Balancer",
+  description:
+    "A Java-based Layer 7 HTTP Load Balancer that intelligently routes client requests using Round Robin load balancing, health checks, path-based routing, and real-time metrics. Designed to improve scalability, reliability, and fault tolerance across multiple backend servers.",
+  tech: [
+    "Java",
+    "HTTP",
+    "Load Balancing",
+    "Round Robin",
+    "Health Checks",
+    "Backend Routing",
+  ],
+  github: "https://github.com/Karanx11/layer7-load-balancer-java",
+  image: layer7Img,
+},
 {
     title: "Portfolio",
     description:
