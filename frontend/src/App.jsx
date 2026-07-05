@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import BottomNav from "./components/BottomNav";
 import AnimatedBackground from "./components/AnimatedBackground";
-
+import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Skills from "./pages/Skills";
@@ -28,6 +28,7 @@ function App() {
           <Achievements />
           <Contact />
         </main>
+        <ScrollToTop />
       </div>
     </>
   );

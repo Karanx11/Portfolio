@@ -4,13 +4,23 @@ body {
   background-color: #0f0f0f;
   color: white;
 }
-@keyframes float {
+
+
+@keyframes floatSkill {
   0% {
     transform: translateY(0px);
   }
 
+  25% {
+    transform: translateY(-5px);
+  }
+
   50% {
-    transform: translateY(-12px);
+    transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(5px);
   }
 
   100% {
@@ -18,6 +28,6 @@ body {
   }
 }
 
-.float {
-  animation: float 5s ease-in-out infinite;
+.float-skill {
+  animation: floatSkill 4s ease-in-out infinite;
 }
