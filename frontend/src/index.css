@@ -6,28 +6,3 @@ body {
 }
 
 
-@keyframes floatSkill {
-  0% {
-    transform: translateY(0px);
-  }
-
-  25% {
-    transform: translateY(-5px);
-  }
-
-  50% {
-    transform: translateY(0px);
-  }
-
-  75% {
-    transform: translateY(5px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.float-skill {
-  animation: floatSkill 4s ease-in-out infinite;
-}
