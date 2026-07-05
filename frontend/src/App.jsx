@@ -1,27 +1,34 @@
 import Navbar from "./components/Navbar";
 import BottomNav from "./components/BottomNav";
-import Achievements from "./pages/Achievements";
+import AnimatedBackground from "./components/AnimatedBackground";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
+import Achievements from "./pages/Achievements";
 import Contact from "./pages/Contact";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <BottomNav />
+      {/* Futuristic Background */}
+      <AnimatedBackground />
 
-      <main className="pt-5 pb-32">
-        <Home />
-        <About />
-        <Skills />
-        <Projects />
-        <Achievements />
-        <Contact />
-      </main>
+      {/* Content */}
+      <div className="relative z-10">
+        <Navbar />
+        <BottomNav />
+
+        <main className="pt-5 pb-32">
+          <Home />
+          <About />
+          <Skills />
+          <Projects />
+          <Achievements />
+          <Contact />
+        </main>
+      </div>
     </>
   );
 }
