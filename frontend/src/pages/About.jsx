@@ -109,9 +109,9 @@ const About = () => {
               <div className="border-l-2 border-[#FA7D09] pl-4">
                 <h4 className="text-white font-semibold">
                   B.Tech in Computer Science Engineering
-                  (Pursuing)
+                  (2023-2027)
                 </h4>
-                <p>BBDITM (AKTU), Lucknow</p>
+                <p>Dr. APJ Abdul Kalam Technical University, Lucknow</p>
               </div>
 
               <div className="border-l-2 border-[#FA7D09] pl-4">
