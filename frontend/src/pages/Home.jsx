@@ -34,7 +34,8 @@ const Home = () => {
           md:p-12
 
           grid
-          md:grid-cols-2
+md:grid-cols-[1.5fr_0.8fr]
+gap-4
 
           gap-12
           items-center
@@ -55,8 +56,7 @@ const Home = () => {
           </h1>
 
           <p className="mt-4 text-lg md:text-xl text-white/80 leading-relaxed">
-            Full Stack Developer | React & MERN | Flutter Developer |
-            Arduino • ESP32 | IoT Enthusiast
+            Full Stack Developer (MERN) | Flutter Developer | IoT Enthusiast
           </p>
 
           <p className="mt-6 text-white/60 max-w-xl mx-auto md:mx-0 leading-8">
@@ -108,7 +108,8 @@ const Home = () => {
             </a>
           </div>
         </motion.div>
-                {/* RIGHT SIDE */}
+               
+        {/* RIGHT SIDE */}
         <motion.div
           className="flex justify-center md:justify-end order-1 md:order-2"
           initial={{ opacity: 0, x: 60, scale: 0.9 }}
@@ -119,27 +120,40 @@ const Home = () => {
             ease: "easeOut",
           }}
         >
-          <div
-            className="
-              relative
-              w-60 h-60
-              sm:w-72 sm:h-72
-              md:w-96 md:h-96
-              rounded-full
-              border-4 border-orange-500
-              overflow-hidden
-              transition-transform
-              duration-300
-              hover:scale-105
-            "
-          >
-            <img
-              src={profile}
-              alt="Karan Sharma"
-              className="w-full h-full object-cover object-top"
-            />
-          </div>
-        </motion.div>
+  <div
+    className="
+      relative
+
+      w-64 h-80
+      sm:w-72 sm:h-[420px]
+      md:w-80 md:h-[500px]
+
+      rounded-3xl
+
+      overflow-hidden
+
+      border-2
+      border-white/10
+
+      bg-white/5
+      backdrop-blur-xl
+
+      shadow-xl
+
+      transition-all
+      duration-300
+
+      hover:scale-105
+      hover:border-[#FA7D09]
+    "
+  >
+    <img
+      src={profile}
+      alt="Karan Sharma"
+      className="w-full h-full object-cover object-top"
+    />
+  </div>
+</motion.div>
       </div>
     </section>
   );
