@@ -58,8 +58,8 @@ const Contact = () => {
 
           {/* Left Side */}
           <motion.div
-            initial={{ opacity: 0, x: -80 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -80 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true, amount: 0.3 }}
           >
@@ -70,7 +70,7 @@ const Contact = () => {
             <div className="space-y-6">
 
               <motion.a
-                whileHover={{ x: 8 }}
+                whileHover={{ y: 8 }}
                 href="mailto:karanx11.72898@gmail.com"
                 className="flex items-center gap-4 text-white/80 hover:text-[#FA7D09] transition"
               >
@@ -79,7 +79,7 @@ const Contact = () => {
               </motion.a>
 
               <motion.a
-                whileHover={{ x: 8 }}
+                whileHover={{ y: 8 }}
                 href="https://www.linkedin.com/in/karan-s-290241298"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -90,7 +90,7 @@ const Contact = () => {
               </motion.a>
 
               <motion.a
-                whileHover={{ x: 8 }}
+                whileHover={{ y: 8 }}
                 href="https://github.com/Karanx11"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -105,8 +105,8 @@ const Contact = () => {
 
           {/* Right Side */}
           <motion.div
-            initial={{ opacity: 0, x: 80 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.8,
               delay: 0.2,

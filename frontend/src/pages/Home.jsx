@@ -44,8 +44,8 @@ gap-4
         {/* LEFT SIDE */}
         <motion.div
           className="order-2 md:order-1 text-center md:text-left"
-          initial={{ opacity: 0, x: -60 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: -60 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.8,
             ease: "easeOut",
@@ -112,8 +112,8 @@ gap-4
         {/* RIGHT SIDE */}
         <motion.div
           className="flex justify-center md:justify-end order-1 md:order-2"
-          initial={{ opacity: 0, x: 60, scale: 0.9 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 60, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{
             duration: 0.8,
             delay: 0.2,

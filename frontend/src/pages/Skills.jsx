@@ -151,15 +151,15 @@ const Skills = () => {
                 {group.items.map((skill, i) => (
                   <motion.li
                     key={i}
-                    initial={{ opacity: 0, x: -15 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: -15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{
                       delay: i * 0.08,
                       duration: 0.35,
                     }}
                     whileHover={{
-                      x: 6,
+                      y: 6,
                     }}
                     className="flex items-center gap-4 text-white/80 hover:text-white"
                   >

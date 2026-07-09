@@ -274,7 +274,7 @@ const Projects = () => {
                   <div className="flex gap-5">
 
                     <motion.a
-                      whileHover={{ x: 5 }}
+                      whileHover={{ y: 5 }}
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -286,7 +286,7 @@ const Projects = () => {
 
                     {project.live && (
                       <motion.a
-                        whileHover={{ x: 5 }}
+                        whileHover={{ y: 5 }}
                         href={project.live}
                         target="_blank"
                         rel="noopener noreferrer"
