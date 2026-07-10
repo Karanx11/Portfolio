@@ -109,7 +109,7 @@ const Skills = () => {
           </h2>
 
           <p className="mt-4 text-white/70">
-            Technologies and tools I work with regularly.
+            Technologies and Tools I work with regularly.
           </p>
         </motion.div>
 

@@ -34,8 +34,8 @@ const Home = () => {
           md:p-12
 
           grid
-md:grid-cols-[1.5fr_0.8fr]
-gap-4
+          md:grid-cols-[1.5fr_0.8fr]
+          gap-4
 
           gap-12
           items-center
