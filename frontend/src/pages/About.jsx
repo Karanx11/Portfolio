@@ -63,7 +63,7 @@ const About = () => {
               <p className="font-semibold text-white">
                 Tech Stack
               </p>
-              <p>React, MERN, Flutter, Firebase</p>
+              <p>MERN, Flutter, Firebase</p>
             </div>
 
             <div>
@@ -138,7 +138,7 @@ const About = () => {
             </h3>
 
             <ul className="space-y-3 text-white/70 text-sm">
-              <li>✔ React, MERN, Flutter</li>
+              <li>✔ MERN, Flutter</li>
               <li>✔ Experience with Firebase & REST APIs</li>
               <li>✔ Cross-platform app development</li>
               <li>✔ Hands-on IoT projects (Arduino, ESP32)</li>
