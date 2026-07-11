@@ -63,7 +63,7 @@ const About = () => {
               <p className="font-semibold text-white">
                 Tech Stack
               </p>
-              <p>MERN, Flutter, Firebase</p>
+              <p>MERN, Flutter</p>
             </div>
 
             <div>
