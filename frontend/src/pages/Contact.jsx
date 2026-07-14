@@ -7,11 +7,40 @@ const Contact = () => {
   const formRef = useRef();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
+  const [status, setStatus] = useState("");
+
+  const allowedDomains = [
+    "gmail.com",
+    "outlook.com",
+    "hotmail.com",
+    "live.com",
+    "yahoo.com",
+    "yahoo.in",
+    "zoho.com",
+    "zohomail.com",
+    "protonmail.com",
+    "icloud.com",
+    "me.com",
+    "aol.com",
+  ];
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    const email = formRef.current.from_email.value.trim().toLowerCase();
+    const domain = email.split("@")[1];
+
+    if (!allowedDomains.includes(domain)) {
+      setStatus("error");
+      setSuccess(
+        "Please use a valid Gmail, Outlook, Yahoo, Zoho, ProtonMail, or iCloud email address."
+      );
+      return;
+    }
+
     setLoading(true);
     setSuccess("");
+    setStatus("");
 
     emailjs
       .sendForm(
@@ -20,23 +49,22 @@ const Contact = () => {
         formRef.current,
         "q2iYWsXObVS2kLdih"
       )
-      .then(
-        () => {
-          setLoading(false);
-          setSuccess("Message sent successfully :)");
-          formRef.current.reset();
-        },
-        () => {
-          setLoading(false);
-          setSuccess("Something went wrong..... Try again :(");
-        }
-      );
+      .then(() => {
+        setLoading(false);
+        setStatus("success");
+        setSuccess("Message sent successfully :)");
+        formRef.current.reset();
+      })
+      .catch(() => {
+        setLoading(false);
+        setStatus("error");
+        setSuccess("Something went wrong. Please try again.");
+      });
   };
 
   return (
     <section id="contact" className="px-6 md:px-20 py-20">
       <div className="max-w-6xl mx-auto w-full">
-
         {/* Title */}
         <motion.div
           className="text-center mb-14"
@@ -55,7 +83,6 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
-
           {/* Left Side */}
           <motion.div
             initial={{ opacity: 0, y: -80 }}
@@ -68,7 +95,6 @@ const Contact = () => {
             </h3>
 
             <div className="space-y-6">
-
               <motion.a
                 whileHover={{ y: 8 }}
                 href="mailto:karanx11.72898@gmail.com"
@@ -99,7 +125,6 @@ const Contact = () => {
                 <FaGithub size={20} />
                 GitHub
               </motion.a>
-
             </div>
           </motion.div>
 
@@ -137,6 +162,8 @@ const Contact = () => {
                 name="from_email"
                 placeholder="Your Email"
                 required
+                pattern="^[A-Za-z0-9._%+-]+@(gmail\.com|outlook\.com|hotmail\.com|live\.com|yahoo\.com|yahoo\.in|zoho\.com|zohomail\.com|protonmail\.com|icloud\.com|me\.com|aol\.com)$"
+                title="Please use Gmail, Outlook, Yahoo, Zoho, ProtonMail, iCloud or AOL."
                 className="w-full px-4 py-3 rounded-lg bg-black/60 border border-white/10 focus:outline-none focus:border-[#FA7D09] text-white"
               />
 
@@ -150,12 +177,8 @@ const Contact = () => {
               />
 
               <motion.button
-                whileHover={{
-                  scale: 1.03,
-                }}
-                whileTap={{
-                  scale: 0.97,
-                }}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
                 type="submit"
                 disabled={loading}
                 className="w-full py-3 rounded-lg bg-[#FA7D09] text-black font-semibold hover:bg-[#e96f08] transition disabled:opacity-60"
@@ -167,14 +190,17 @@ const Contact = () => {
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="text-center text-sm text-green-400"
+                  className={`text-center text-sm ${
+                    status === "success"
+                      ? "text-green-400"
+                      : "text-red-400"
+                  }`}
                 >
                   {success}
                 </motion.p>
               )}
             </form>
           </motion.div>
-
         </div>
       </div>
     </section>

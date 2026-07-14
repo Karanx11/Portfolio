@@ -10,11 +10,11 @@ const Home = () => {
       className="min-h-screen flex items-center px-6 md:px-20 pt-8 pb-20"
     >
       <div
-  className="
-    w-full
-    max-w-7xl
-    mx-auto
-    mt-10 md:mt-16
+        className="
+          w-full
+          max-w-7xl
+          mx-auto
+          mt-10 md:mt-16
 
           bg-gradient-to-br
           from-white/10
