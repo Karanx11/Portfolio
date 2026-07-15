@@ -10,7 +10,6 @@ const Footer = () => {
           <p className="text-center">
             © {year} Karan Sharma. All rights reserved.
           </p>
-          <span className="hidden md:block">•</span>
         </div>
       </div>
     </footer>
