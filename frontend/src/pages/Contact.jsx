@@ -52,13 +52,13 @@ const Contact = () => {
       .then(() => {
         setLoading(false);
         setStatus("success");
-        setSuccess("Message sent successfully :)");
+        setSuccess("Message sent successfully ...");
         formRef.current.reset();
       })
       .catch(() => {
         setLoading(false);
         setStatus("error");
-        setSuccess("Something went wrong. Please try again.");
+        setSuccess("Something went wrong !! Please try again.");
       });
   };
 
