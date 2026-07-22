@@ -58,7 +58,7 @@ const Contact = () => {
       .catch(() => {
         setLoading(false);
         setStatus("error");
-        setSuccess("Something went wrong !! Please try again.");
+        setSuccess("Something went wrong, Please try again !");
       });
   };
 

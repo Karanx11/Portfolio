@@ -52,7 +52,7 @@ const Home = () => {
           }}
         >
           <h1 className="text-4xl md:text-6xl font-bold text-orange-500">
-            Karan Sharma.
+            Karan Sharma
           </h1>
 
           <p className="mt-4 text-lg md:text-xl text-white/80 leading-relaxed">

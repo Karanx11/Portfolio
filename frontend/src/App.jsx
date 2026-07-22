@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <>
-      {/* Futuristic Background */}
+      {/* Animated  Background */}
       <AnimatedBackground />
 
       {/* Content */}
