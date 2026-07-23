@@ -48,6 +48,9 @@
 
     ⚡ Built with Vite for fast performance
 
+    📱 Futuristic Animation
+ 
+
 ## 🛠️ Tech Stack
 
 ### Frontend
