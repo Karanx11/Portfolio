@@ -9,6 +9,7 @@ import Projects from "./pages/Projects";
 import Achievements from "./pages/Achievements";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
+import Experience from "./pages/Experience";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Home />
           <About />
           <Skills />
+          <Experience />
           <Projects />
           <Achievements />
           <Contact />

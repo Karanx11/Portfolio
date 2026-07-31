@@ -4,6 +4,7 @@ const sections = [
   "home",
   "about",
   "skills",
+  "experience",
   "projects",
   "achievements",
   "contact",
@@ -38,7 +39,7 @@ const useActiveSection = () => {
       }
     };
 
-    handleScroll(); // initial run
+    handleScroll(); // Initial run
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);

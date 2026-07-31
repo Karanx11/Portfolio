@@ -3,13 +3,14 @@ import useActiveSection from "../hooks/useActiveSection";
 const Navbar = () => {
   const active = useActiveSection();
   const links = [
-    "home",
-    "about",
-    "skills",
-    "projects",
-    "achievements",
-    "contact",
-  ];
+  "home",
+  "about",
+  "skills",
+  "experience",
+  "projects",
+  "achievements",
+  "contact",
+];
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({
