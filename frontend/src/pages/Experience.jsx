@@ -1,12 +1,15 @@
+import { motion } from "framer-motion";
+
 const experiences = [
   {
-    company: "Sypnotech India Pvt. Ltd.",
-    role: "Full Stack Developer Intern",
-    duration: "July 2026 – Present",
+    company: "Channelplay Limited, Gurugram",
+    role: "QA Engineer Intern",
+    duration: "27 July 2026 – Present",
     description: [
-      "Building responsive web applications using React.js and Node.js.",
-      "Working on REST APIs and backend integration.",
-      "Collaborating with the development team on real-world projects.",
+      "Performing manual testing of web and mobile applications.",
+      "Identifying, documenting, and tracking software bugs.",
+      "Executing test cases to ensure application quality and reliability.",
+      "Working closely with developers to verify bug fixes and improve product quality.",
     ],
   },
 ];
@@ -18,15 +21,33 @@ function Experience() {
       className="min-h-screen flex items-center justify-center px-6 py-24"
     >
       <div className="max-w-5xl w-full">
-        <h2 className="text-4xl font-bold text-center text-[#FA7D09] mb-12">
+        <motion.h2
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-4xl font-bold text-center text-[#FA7D09] mb-12"
+        >
           Experience
-        </h2>
+        </motion.h2>
 
         <div className="space-y-8">
           {experiences.map((exp, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6"
+              initial={{ opacity: 0, y: 60, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{
+                duration: 0.7,
+                delay: index * 0.2,
+              }}
+              viewport={{ once: true }}
+              whileHover={{
+                y: -8,
+                scale: 1.02,
+                transition: { duration: 0.2 },
+              }}
+              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-lg"
             >
               <div className="flex flex-col md:flex-row md:justify-between md:items-center">
                 <div>
@@ -34,7 +55,7 @@ function Experience() {
                     {exp.role}
                   </h3>
 
-                  <p className="text-[#FA7D09] mt-1">
+                  <p className="text-[#FA7D09] mt-1 font-medium">
                     {exp.company}
                   </p>
                 </div>
@@ -49,7 +70,7 @@ function Experience() {
                   <li key={i}>{item}</li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
