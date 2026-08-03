@@ -34,43 +34,52 @@ function Experience() {
         <div className="space-y-8">
           {experiences.map((exp, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 60, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{
-                duration: 0.7,
-                delay: index * 0.2,
-              }}
-              viewport={{ once: true }}
-              whileHover={{
-                y: -8,
-                scale: 1.02,
-                transition: { duration: 0.2 },
-              }}
-              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-lg"
-            >
-              <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-                <div>
-                  <h3 className="text-2xl font-semibold text-white">
-                    {exp.role}
-                  </h3>
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7 }}
+  viewport={{ once: true }}
+  whileHover={{ y: -8 }}
+  className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-lg"
+>
+  <div className="grid md:grid-cols-2 gap-8 items-center">
+    
+    {/* LEFT */}
+    <div>
+      <h3 className="text-3xl font-bold text-white">
+        QA Engineer Intern
+      </h3>
 
-                  <p className="text-[#FA7D09] mt-1 font-medium">
-                    {exp.company}
-                  </p>
-                </div>
+      <p className="text-[#FA7D09] text-lg font-medium mt-2">
+        Channelplay Limited, Gurugram
+      </p>
 
-                <p className="text-white/60 mt-2 md:mt-0">
-                  {exp.duration}
-                </p>
-              </div>
+      <p className="text-white/60 mt-2">
+        27 July 2026 – Present
+      </p>
 
-              <ul className="mt-5 space-y-2 text-white/80 list-disc list-inside">
-                {exp.description.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-            </motion.div>
+      <ul className="mt-6 space-y-3 text-white/80 list-disc list-inside">
+        <li>Performing manual testing of web and mobile applications.</li>
+        <li>Identifying, documenting, and tracking software bugs.</li>
+        <li>Executing test cases to ensure software quality.</li>
+        <li>Collaborating with developers to verify fixes and improve product reliability.</li>
+      </ul>
+    </div>
+
+    {/* RIGHT */}
+    <motion.div
+      whileHover={{ scale: 1.03 }}
+      transition={{ duration: 0.3 }}
+      className="flex justify-center"
+    >
+      <img
+        src="/channelplay-office.jpg"
+        alt="Channelplay Office"
+        className="w-full max-w-md h-72 object-cover rounded-2xl border border-white/20 shadow-xl"
+      />
+    </motion.div>
+
+  </div>
+</motion.div>
           ))}
         </div>
       </div>
