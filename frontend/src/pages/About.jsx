@@ -39,7 +39,7 @@ const About = () => {
             Along with web development, I actively build
             cross-platform mobile apps using Flutter,
             Firebase and Supabase. I also work with Arduino,
-            ESP32, and IoT-based projects to solve real-world
+            ESP32, Sensors and IoT-based projects to solve real-world
             problems.
           </p>
 

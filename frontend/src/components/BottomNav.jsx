@@ -5,7 +5,7 @@ import {
   FaProjectDiagram,
   FaEnvelope,
   FaTrophy,
-  FaBriefcase, // <-- Add this
+  FaBriefcase, 
 } from "react-icons/fa";
 import useActiveSection from "../hooks/useActiveSection";
 
