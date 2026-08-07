@@ -56,7 +56,7 @@ const Home = () => {
           </h1>
 
           <p className="mt-4 text-lg md:text-xl text-white/80 leading-relaxed">
-            Full Stack Developer (MERN) | Flutter Developer | IoT Enthusiast
+            Full Stack Developer (MERN) | Flutter Developer | IoT Enthusiast | QA Engineer
           </p>
 
           <p className="mt-6 text-white/60 max-w-xl mx-auto md:mx-0 leading-8">
