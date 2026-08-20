@@ -58,7 +58,6 @@
     React (Vite)
     Tailwind CSS
     JavaScript (ES6+)
-    React Icons
 
 ### Utilities & Services
 
