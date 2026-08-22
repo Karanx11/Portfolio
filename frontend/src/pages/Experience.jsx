@@ -46,7 +46,7 @@ function Experience() {
     {/* LEFT */}
     <div>
       <h3 className="text-3xl font-bold text-white">
-        QA Engineer Intern
+        Software Developer Intern
       </h3>
 
       <p className="text-[#FA7D09] text-lg font-medium mt-2">
