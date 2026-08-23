@@ -1,7 +1,7 @@
 # 📌 Karan Sharma — Developer Portfolio
 
     🚀 A modern, responsive developer portfolio website showcasing my full-stack, AI, and hardware projects, built with a clean glassmorphic dark UI and smooth user experience across devices.
-     Designed to reflect my skills, projects, and achievements in a professional and recruiter-friendly way.
+     Designed to reflect my skills, experience, projects, and achievements in a professional and recruiter-friendly way.
      
 ## 📸 Screenshots
 
