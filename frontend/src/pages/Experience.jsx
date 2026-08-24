@@ -58,10 +58,10 @@ function Experience() {
       </p>
 
       <ul className="mt-6 space-y-3 text-white/80 list-disc list-inside">
-        <li>Performing manual testing of web and mobile applications.</li>
-        <li>Identifying, documenting, and tracking software bugs.</li>
-        <li>Executing test cases to ensure software quality.</li>
-        <li>Collaborating with developers to verify fixes and improve product reliability.</li>
+        <li>Developing and maintaining responsive web applications using modern technologies.</li>
+        <li>Building reusable and scalable frontend components and integrating REST APIs.</li>
+        <li>Debugging, testing, and optimizing applications to improve performance and reliability.</li>
+        <li>Collaborating with developers to implement new features and resolve technical issues.</li>
       </ul>
     </div>
 
