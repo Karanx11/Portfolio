@@ -36,7 +36,7 @@ const About = () => {
           </p>
 
           <p className="mt-4 text-white/70 leading-relaxed">
-            Along with web development, I actively build
+            Along with software development, I actively build
             cross-platform mobile apps using Flutter,
             Firebase and Supabase. I also work with Arduino,
             ESP32, Sensors and IoT-based projects to solve real-world
