@@ -26,7 +26,7 @@ const projects = [
       "Express",
       "MongoDB",
       "REST API",
-      "AI Chatbot",
+      "GrokAI Chatbot",
       "Google Signin",
     ],
     github: "https://github.com/Karanx11/RentKaro",
