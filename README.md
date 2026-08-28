@@ -103,7 +103,7 @@
 
 ### 🚀 Build for Production
     npm run build
-    Build output will be generated in the dist/ folder.
+    Build output will be generated in the dist folder.
 
 ## 🌍 Deployment
 
