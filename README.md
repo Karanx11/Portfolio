@@ -13,6 +13,10 @@
 
 ![About Web](frontend/public/screenshots/about.png)
 
+### Experience Section
+
+![Experience Web](frontend/public/screenshots/experience.png)
+
 ### 💼 Projects Section
 
 ![Project Web](frontend/public/screenshots/projects.png)
