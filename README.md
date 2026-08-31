@@ -13,6 +13,11 @@
 
 ![About Web](frontend/public/screenshots/about.png)
 
+### Skills Section
+
+![Skills Web](frontend/public/screenshots/skills.png)
+
+
 ### Experience Section
 
 ![Experience Web](frontend/public/screenshots/experience.png)
