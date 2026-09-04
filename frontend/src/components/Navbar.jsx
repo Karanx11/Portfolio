@@ -87,7 +87,7 @@ const Navbar = () => {
     onClick={() => scrollTo("home")}
     className="text-lg font-bold text-[#FA7D09] cursor-pointer hover:scale-105 transition"
   >
-    Portfolio
+    Karan.
   </h1>
 </nav>
     </>
