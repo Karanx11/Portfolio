@@ -40,7 +40,7 @@ const Navbar = () => {
           onClick={() => scrollTo("home")}
           className="text-xl font-bold text-[#FA7D09] cursor-pointer hover:scale-105 transition"
         >
-          Portfolio
+        Karan.
         </h1>
 
         <ul className="flex gap-6">
