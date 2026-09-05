@@ -47,7 +47,7 @@
 
     🧭 Smooth Scroll Navigation
 
-    🧩 Project Showcase with Images
+    🧩 Project Showcase with Photos
 
     🏆 Achievements Section with Certificates
 
