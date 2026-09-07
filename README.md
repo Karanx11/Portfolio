@@ -43,13 +43,13 @@
 
     📱 Mobile Bottom App-Style Navigation
 
-    🎯 Active Section Highlighting
+    🎯 Active Section Highlighting.
 
     🧭 Smooth Scroll Navigation
 
-    🧩 Project Showcase with Images
+    🧩 Project Showcase with Images.
 
-    🏆 Achievements Section with Certificates
+    🏆 Achievements Section with Certificates.
 
     📄 Downloadable Resume
 
