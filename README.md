@@ -51,7 +51,7 @@
 
     🏆 Achievements Section with Certificates.
 
-    📄 Downloadable Resume
+    📄 Downloadable CV
 
     📬 Working Contact Form (EmailJS)
 
