@@ -3,7 +3,7 @@
     🚀 A modern, responsive developer portfolio website showcasing my full-stack mobile apps and hardware projects, built with a clean glassmorphic dark UI and smooth user experience across devices.
      Designed to reflect my skills, experience, projects, and achievements in a professional and recruiter-friendly way.
      
-## 📸 Screenshots
+## 📸 Screenshot
 
 ### 🏠 Home Section
 
